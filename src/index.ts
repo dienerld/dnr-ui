@@ -1,5 +1,7 @@
-import DnrButton  from "./components/Button.vue";
-import DnrCard  from "./components/Card.vue";
-import DnrShape  from "./components/Shape.vue";
+import DButton  from "./components/Button.vue";
+import DCard  from "./components/Card.vue";
+import DColorTile  from "./components/ColorTile.vue";
+import DTypography  from "./components/Typography.vue";
 
-export  { DnrButton, DnrCard, DnrShape };
+
+export  { DButton, DCard, DColorTile,DTypography };
