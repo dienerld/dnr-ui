@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import { Ref, computed, ref } from 'vue';
+import { Ref, computed, ref } from 'vue'
 
 interface TypographyProps {
   variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'span' | 'p'
   is: 'h1' | 'h2' | 'h3' | 'h4' | 'span' | 'p'
 }
 
-const props = withDefaults( defineProps<TypographyProps>(), {
-  variant: 'p',
-  is: 'p',
-})
+const props = defineProps<TypographyProps>()
 
 const Tag: Ref<any> = ref(props.is || 'p')
 const classList = computed(() => {

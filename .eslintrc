@@ -1,0 +1,16 @@
+{
+  "extends": ["dienerld/vue"],
+  "rules": {
+    "semi": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "semi": false
+      }
+    ],
+    "comma-dangle": "off"
+  }
+}

@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import {concatClass} from '../utils/utilsCss'
+import { Ref, computed, ref } from 'vue'
+import { concatClass } from '../utils/utilsCss'
 
 interface ButtonProps {
   variant: 'contained' | 'outlined'
   size?: 'sm' | 'md' | 'lg' | 'xl'
+  is?: any
 }
 
 const props = defineProps<ButtonProps>()
+const Tag: Ref<any> = ref(props.is || 'button')
 
 const classList = computed<string>(() => {
   const base: Record<string, string> = {
@@ -27,10 +29,10 @@ const classList = computed<string>(() => {
 </script>
 
 <template>
-  <button
+  <Tag
     class="inline-block rounded-lg px-4 py-2 text-xs font-medium text-primary"
     :class="classList"
   >
     <slot />
-  </button>
+  </Tag>
 </template>

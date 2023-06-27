@@ -1,10 +1,9 @@
 <script setup lang="ts">
+import Page from './page/index.vue'
 </script>
 
 <template>
-  <div>Teste</div>
+  <Page></Page>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
