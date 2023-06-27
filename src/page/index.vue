@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Card from '../components/Card.vue'
+import DCard from '../components/Card.vue'
 </script>
 
 <template>
-  <Card>sdah</Card>
+  <DCard>sdah</DCard>
 </template>
