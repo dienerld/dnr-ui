@@ -57,7 +57,12 @@ const classList = computed<string>(() => {
   <Tag
     :data-color="color || 'primary'"
     :disabled="props.disabled"
-    :class="concatClass('rounded-full font-bold  leading-tight', classList)"
+    :class="
+      concatClass(
+        'rounded-full font-bold h-min leading-tight cursor-pointer',
+        classList,
+      )
+    "
   >
     <slot />
   </Tag>

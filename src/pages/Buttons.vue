@@ -7,8 +7,8 @@ const sizes: sizeButton[] = ['sm', 'md', 'lg']
 </script>
 
 <template>
-  <DCard>
-    <div class="space-x-4 space-y-4">
+  <DCard class="space-y-4 pt-10">
+    <div class="flex items-center gap-3 text-black">
       <DButton
         v-for="variant in variants"
         :key="variant"
@@ -17,7 +17,6 @@ const sizes: sizeButton[] = ['sm', 'md', 'lg']
       >
         {{ variant }}
       </DButton>
-
       <DButton
         v-for="size in sizes"
         variant="contained"
@@ -29,7 +28,8 @@ const sizes: sizeButton[] = ['sm', 'md', 'lg']
 
       <DButton variant="contained" size="sm" disabled> disabled </DButton>
     </div>
-    <div class="space-x-4 space-y-4">
+
+    <div class="flex items-center gap-3">
       <DButton
         v-for="variant in variants"
         :key="variant"
@@ -39,7 +39,9 @@ const sizes: sizeButton[] = ['sm', 'md', 'lg']
       >
         {{ variant }}
       </DButton>
+    </div>
 
+    <div class="flex items-center gap-3">
       <DButton
         v-for="size in sizes"
         variant="contained"
@@ -50,7 +52,12 @@ const sizes: sizeButton[] = ['sm', 'md', 'lg']
         {{ size }}
       </DButton>
 
-      <DButton variant="contained" size="sm" disabled> disabled </DButton>
+      <DButton variant="contained" size="lg" disabled> disabled </DButton>
+    </div>
+    <div class="flex flex-col gap-2">
+      <DButton variant="contained" size="sm" full-width> full width </DButton>
+      <DButton variant="contained" size="md" full-width> full width </DButton>
+      <DButton variant="contained" size="lg" full-width> full width </DButton>
     </div>
   </DCard>
 </template>
