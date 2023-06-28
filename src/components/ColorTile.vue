@@ -10,7 +10,7 @@ defineProps<ColorTileProps>()
 <template>
   <div class="flex items-center gap-1">
     <div class="h-8 w-8 rounded border border-gray-200" :class="color"></div>
-    <div class="text-sm text-default">
+    <div class="text-default text-sm">
       {{ label || color }}
     </div>
   </div>

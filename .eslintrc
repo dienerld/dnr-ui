@@ -1,5 +1,5 @@
 {
-  "extends": ["dienerld/vue"],
+  "extends": ["dienerld/vue", "plugin:tailwindcss/recommended"],
   "rules": {
     "semi": "off",
     "prettier/prettier": [

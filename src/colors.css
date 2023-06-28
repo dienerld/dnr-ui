@@ -1,0 +1,34 @@
+:root {
+  --page: hsl(0, 0%, 25%);
+  --page-accent: hsl(0, 0%, 15%);
+
+  --brand: hsl(339, 100%, 58%);
+  --brand-light: hsl(336, 100%, 65%);
+  --brand-secondary: hsl(250, 58%, 28%);
+  --brand-secondary-light: hsl(236, 61%, 38%);
+
+  --uit-primary: hsl(268, 96%, 10%);
+  --uit-secondary: hsl(269, 16%, 41%);
+  --uit-tertiary: hsl(268, 11%, 70%);
+  --uit-success: hsl(145, 48%, 57%);
+  --uit-error: hsl(17, 82%, 63%);
+  --uit-link: hsl(236, 61%, 38%);
+
+  --uie-primary: hsl(0, 0%, 100%);
+  --uie-secondary: hsl(269, 16%, 41%);
+  --uie-tertiary: hsl(268, 11%, 70%);
+  --uie-success: hsl(145, 48%, 57%);
+  --uie-error: hsl(17, 82%, 63%);
+  --uie-neutral: hsl(0, 0%, 92%);
+  --uie-overlay: hsla(250, 58%, 28%, 0.8);
+
+}
+
+.dark {
+
+  --page: hsl(0, 0%, 15%);
+  --page-accent: hsl(0, 0%, 25%);
+
+  --brand: hsl(250, 58%, 28%);
+  --brand-light: hsl(236, 61%, 38%);
+}

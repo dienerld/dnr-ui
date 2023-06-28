@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import Page from './page/index.vue'
+import Buttons from './pages/Buttons.vue'
 </script>
 
 <template>
-  <Page />
+  <Buttons
+    class="container mx-auto flex h-screen w-screen flex-col bg-uie-primary"
+  />
 </template>
 
 <style scoped></style>

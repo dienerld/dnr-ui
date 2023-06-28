@@ -4,4 +4,4 @@ import DColorTile  from "./components/ColorTile.vue";
 import DTypography  from "./components/Typography.vue";
 
 
-export  { DButton, DCard, DColorTile,DTypography };
+export { DButton, DCard, DColorTile,DTypography };
