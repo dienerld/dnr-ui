@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Card from './pages/Card.vue'
-import Buttons from './pages/Buttons.vue'
 import { ref } from 'vue'
+import Cards from './pages/Cards.vue'
+import Buttons from './pages/Buttons.vue'
 import { DButton } from '@/components/DButton'
 
-const theme = ref('dark')
+const theme = ref('light')
 </script>
 
 <template>
@@ -23,7 +23,7 @@ const theme = ref('dark')
       class="container mx-auto flex flex-col bg-uie-primary dark:bg-slate-500"
     />
 
-    <Card class="bg-uie-primary dark:bg-slate-500" />
+    <Cards class="bg-uie-primary dark:bg-slate-500" />
   </div>
 </template>
 

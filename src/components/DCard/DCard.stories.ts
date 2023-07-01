@@ -20,8 +20,14 @@ const meta: Meta<typeof DCard> = {
     color: {
       options: ['primary', 'secondary', 'custom'],
       type: 'string',
-      control: 'select',
+      control: 'radio',
       defaultValue: 'primary'
+    },
+    elevation: {
+      options: ['none', '1', '2', '3'],
+      type: 'string',
+      control: 'radio',
+      defaultValue: 'none'
     }
   },
   render: (args: DCardProps) => ({
