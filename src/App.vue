@@ -20,7 +20,7 @@ const theme = ref('light')
     </div>
 
     <Buttons
-      class="container mx-auto flex flex-col bg-uie-primary dark:bg-slate-500"
+      class="container mx-auto flex flex-col bg-uie-neutral dark:bg-slate-500"
     />
 
     <Cards class="bg-uie-primary dark:bg-slate-500" />

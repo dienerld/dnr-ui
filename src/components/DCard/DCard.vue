@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { concatClass } from '@/utils/utilsCss'
-import { Colors, Elevations } from '@/types'
 import { computed } from 'vue'
+import { concatClass, importantClass } from '@/utils/utilsCss'
+import { Colors, Elevations } from '@/types'
 
 export interface DCardProps {
   color?: Colors
@@ -19,7 +19,7 @@ const classList = computed(() => {
     3: 'shadow-xl'
   }
 
-  return twElevations[props.elevation!]
+  return twElevations[props.elevation!] || ''
 })
 </script>
 <template>
@@ -32,7 +32,7 @@ const classList = computed(() => {
           data-[color=secondary]:bg-brand-secondary
         `,
         classList,
-        $props.class || ''
+        importantClass($props.class)
       )
     "
   >

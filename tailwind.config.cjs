@@ -2,6 +2,7 @@
 module.exports = {
   content: ['./src/**/*.{html,js,vue}', './src/App.vue'],
   darkMode: 'class',
+  important: true,
   theme: {
     extend: {
       fontFamily: {

@@ -1,61 +1,71 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { Colors } from '@/types'
+import { DCard, DTypography } from '@/components'
 import { DButton, sizeButton, variantButton } from '@/components/DButton'
+
 const variants: variantButton[] = ['contained', 'outlined', 'minimal', 'icon']
 const sizes: sizeButton[] = ['sm', 'md', 'lg']
+
+const color = ref<Colors>('primary')
 </script>
 
 <template>
-  <div class="space-y-4 p-4">
-    <div class="flex items-center gap-3 text-black">
+  <DCard class="p-4">
+    <DTypography is="h1">Buttons</DTypography>
+    <DCard class="flex-row items-center gap-3">
       <DButton
-        v-for="variant in variants"
-        :key="variant"
-        :variant="variant"
-        size="sm"
-      >
-        {{ variant }}
-      </DButton>
-      <DButton
-        v-for="size in sizes"
         variant="contained"
-        :key="size"
-        :size="size"
+        class="w-1/4"
+        @click="color = color === 'primary' ? 'secondary' : 'primary'"
       >
-        {{ size }}
-      </DButton>
-
-      <DButton variant="contained" size="sm" disabled> disabled </DButton>
-    </div>
-
-    <div class="flex items-center gap-3">
-      <DButton
-        v-for="variant in variants"
-        :key="variant"
-        :variant="variant"
-        size="sm"
-        color="secondary"
+        Change Color</DButton
       >
-        {{ variant }}
-      </DButton>
-    </div>
+      <DTypography is="p">{{ color }}</DTypography>
+    </DCard>
+    <DCard class="flex-row flex-wrap">
+      <DCard v-for="variant in variants" :key="variant">
+        <DTypography is="h2">{{ variant }}</DTypography>
+        <DButton
+          :color="color"
+          v-for="size in sizes"
+          :variant="variant"
+          :key="size"
+          :size="size"
+        >
+          {{ size }}
+        </DButton>
+      </DCard>
+      <DCard>
+        <DButton :color="color" variant="contained" size="sm" disabled>
+          disabled
+        </DButton>
+        <DButton :color="color" variant="contained" size="md" loading>
+        </DButton>
+        <DButton
+          :color="color"
+          variant="contained"
+          size="lg"
+          loading
+          full-width
+        >
+        </DButton>
+      </DCard>
+    </DCard>
 
-    <div class="flex items-center gap-3">
-      <DButton
-        v-for="size in sizes"
-        variant="contained"
-        :key="size"
-        :size="size"
-      >
-        Diener
-      </DButton>
+    <DButton :color="color" variant="contained" size="lg" disabled>
+      disabled
+    </DButton>
 
-      <DButton variant="contained" size="lg" disabled> disabled </DButton>
-    </div>
-    <div class="flex flex-col gap-2">
-      <DButton variant="contained" size="sm" full-width> full width </DButton>
-      <DButton variant="contained" size="md" full-width> full width </DButton>
-      <DButton variant="contained" size="lg" full-width> full width </DButton>
-    </div>
-  </div>
+    <DButton :color="color" variant="contained" size="sm" full-width>
+      full width
+    </DButton>
+    <DButton :color="color" variant="contained" size="md" full-width>
+      full width
+    </DButton>
+    <DButton :color="color" variant="contained" size="lg" full-width>
+      full width
+    </DButton>
+  </DCard>
 </template>
 @/components/DButton/Button.vue @/components/DButton/Button.vue
