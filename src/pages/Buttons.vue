@@ -16,6 +16,7 @@ const color = ref<Colors>('primary')
     <DCard class="flex-row items-center gap-3">
       <DButton
         variant="contained"
+        :color="color"
         class="w-1/4"
         @click="color = color === 'primary' ? 'secondary' : 'primary'"
       >
