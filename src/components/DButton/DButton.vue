@@ -1,17 +1,18 @@
 <script setup lang="ts">
+import { Colors } from '@/types'
+import { concatClass } from '@/utils/utilsCss'
 import { Ref, computed, ref } from 'vue'
-import { concatClass } from '../utils/utilsCss'
 export type variantButton = 'contained' | 'outlined' | 'minimal' | 'icon'
-export type sizeButton = 'sm' | 'md' | 'lg'
-export type colorButton = 'primary' | 'secondary'
 
-interface ButtonProps {
+export type sizeButton = 'sm' | 'md' | 'lg'
+export interface ButtonProps {
   variant: variantButton
-  color?: colorButton
+  color?: Colors
   size?: sizeButton
   is?: any
   fullWidth?: boolean
   disabled?: boolean
+  class?: string
 }
 
 const props = defineProps<ButtonProps>()
@@ -37,30 +38,31 @@ const classList = computed<string>(() => {
     `,
 
     icon: 'p-2',
-    disabled: 'bg-uie-neutral text-uit-tertiary pointer-events-none',
+    disabled: 'bg-uie-neutral text-uit-tertiary pointer-events-none'
   }
 
   const twSize: Record<sizeButton, string> = {
     sm: 'text-xs py-1 px-2',
     md: 'text-sm py-2 px-4',
-    lg: 'text-base py-2 px-6',
+    lg: 'text-base py-2 px-6'
   }
   return concatClass(
     twVariant[props.disabled ? 'disabled' : props.variant],
     twSize[props.size || 'md'],
-    props.fullWidth ? 'w-full' : '',
+    props.fullWidth ? 'w-full' : ''
   )
 })
 </script>
 
 <template>
   <Tag
-    :data-color="color || 'primary'"
+    :data-color="color"
     :disabled="props.disabled"
     :class="
       concatClass(
         'rounded-full font-bold h-min leading-tight cursor-pointer',
         classList,
+        $props.class || ''
       )
     "
   >

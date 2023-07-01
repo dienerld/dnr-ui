@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import DButton, { sizeButton, variantButton } from '../components/Button.vue'
-import DCard from '../components/Card.vue'
-
-const variants: variantButton[] = ['contained', 'outlined', 'minimal']
+import { DButton, sizeButton, variantButton } from '@/components/DButton'
+const variants: variantButton[] = ['contained', 'outlined', 'minimal', 'icon']
 const sizes: sizeButton[] = ['sm', 'md', 'lg']
 </script>
 
 <template>
-  <DCard class="space-y-4 pt-10">
+  <div class="space-y-4 p-4">
     <div class="flex items-center gap-3 text-black">
       <DButton
         v-for="variant in variants"
@@ -47,9 +45,8 @@ const sizes: sizeButton[] = ['sm', 'md', 'lg']
         variant="contained"
         :key="size"
         :size="size"
-        color="secondary"
       >
-        {{ size }}
+        Diener
       </DButton>
 
       <DButton variant="contained" size="lg" disabled> disabled </DButton>
@@ -59,5 +56,6 @@ const sizes: sizeButton[] = ['sm', 'md', 'lg']
       <DButton variant="contained" size="md" full-width> full width </DButton>
       <DButton variant="contained" size="lg" full-width> full width </DButton>
     </div>
-  </DCard>
+  </div>
 </template>
+@/components/DButton/Button.vue @/components/DButton/Button.vue

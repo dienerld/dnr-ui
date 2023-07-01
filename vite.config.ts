@@ -11,7 +11,11 @@ export default defineConfig({
       tsconfigPath: "tsconfig.build.json",
     }),
   ],
-
+  resolve:{
+    alias:{
+      '@':resolve(__dirname,'src')
+    }
+  },
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points

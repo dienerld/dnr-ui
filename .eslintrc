@@ -1,16 +1,25 @@
 {
-  "extends": ["dienerld/vue", "plugin:tailwindcss/recommended"],
+  "parserOptions": {
+    "extraFileExtensions": [".vue"],
+    "project": "./tsconfig.json",
+    "parser": "@typescript-eslint/parser"
+  },
+  "extends": [
+    "dienerld/vue",
+    "plugin:tailwindcss/recommended",
+    "plugin:storybook/recommended"
+  ],
   "rules": {
     "semi": "off",
+    "@typescript-eslint/space-before-function-paren": "off",
     "prettier/prettier": [
       "error",
       {
         "singleQuote": true,
-        "trailingComma": "all",
+        "trailingComma": "none",
         "bracketSpacing": true,
         "semi": false
       }
-    ],
-    "comma-dangle": "off"
+    ]
   }
 }

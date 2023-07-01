@@ -16,12 +16,16 @@
     "outDir": "dist",
     "declaration": true,
 
-
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "rootDir": ".",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
 
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -1,7 +1,6 @@
-import DButton  from "./components/Button.vue";
-import DCard  from "./components/Card.vue";
-import DColorTile  from "./components/ColorTile.vue";
-import DTypography  from "./components/Typography.vue";
+import DColorTile from './components/ColorTile.vue'
+import DTypography from './components/Typography.vue'
+import DButton from '@/components/DButton'
+import DCard from '@/components/DCard'
 
-
-export { DButton, DCard, DColorTile,DTypography };
+export { DButton, DCard, DColorTile, DTypography }
