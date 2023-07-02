@@ -12,6 +12,7 @@
   "rules": {
     "semi": "off",
     "@typescript-eslint/space-before-function-paren": "off",
+    "space-before-function-paren": "off",
     "prettier/prettier": [
       "error",
       {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Ref, computed, ref } from 'vue'
+import { computed } from 'vue'
 import { Colors } from '@/types'
-import { concatClass, importantClass } from '@/utils/utilsCss'
+import { concatClass } from '@/utils/utilsCss'
 import { IconLoading } from '@/icons'
 
 export type variantButton = 'contained' | 'outlined' | 'minimal' | 'icon'
@@ -11,15 +11,13 @@ export interface ButtonProps {
   variant: variantButton
   color?: Colors
   size?: sizeButton
-  is?: any
   fullWidth?: boolean
   disabled?: boolean
   class?: string
   loading?: boolean
+  to?: string
 }
-
 const props = defineProps<ButtonProps>()
-const Tag: Ref<any> = ref(props.is || 'button')
 
 const twVariant: Record<variantButton | 'disabled' | 'loading', string> = {
   contained: `bg-brand hover:bg-brand-light text-white
@@ -39,7 +37,7 @@ const twVariant: Record<variantButton | 'disabled' | 'loading', string> = {
       data-[color=secondary]:hover:text-white
     `,
 
-  icon: 'p-2',
+  icon: 'bg-uie-primary',
   disabled: 'bg-uie-primary text-uit-tertiary pointer-events-none',
   loading: 'pointer-events-none'
 }
@@ -52,6 +50,7 @@ const twSize: Record<sizeButton, string> = {
 
 const classList = computed<string>(() => {
   return concatClass(
+    'flex items-center justify-center',
     twVariant[props.disabled ? 'disabled' : props.variant],
     props.loading ? twVariant.loading : '',
     twSize[props.size || 'md'],
@@ -61,14 +60,15 @@ const classList = computed<string>(() => {
 </script>
 
 <template>
-  <Tag
+  <button
+    type="button"
     :data-color="color"
     :disabled="props.disabled"
     :class="
       concatClass(
         'rounded-full font-bold h-min leading-tight cursor-pointer',
         classList,
-        importantClass($props.class)
+        $props.class ?? ''
       )
     "
   >
@@ -78,6 +78,13 @@ const classList = computed<string>(() => {
         <IconLoading class="animate-spin" />
       </div>
     </slot>
+
+    <slot v-else-if="variant === 'icon'" name="icon">
+      <div class="">
+        <slot />
+      </div>
+    </slot>
+
     <slot v-else />
-  </Tag>
+  </button>
 </template>
