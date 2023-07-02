@@ -33,12 +33,7 @@ const meta: Meta<typeof DButton> = {
       control: 'boolean',
       defaultValue: false
     },
-    is: {
-      type: 'string',
-      control: 'text',
-      description: 'Html tag',
-      defaultValue: 'button'
-    },
+
     color: {
       options: ['primary', 'secondary', 'custom'],
       type: 'string',
@@ -55,8 +50,7 @@ const meta: Meta<typeof DButton> = {
     color: 'primary',
     variant: 'contained',
     size: 'md',
-    fullWidth: false,
-    is: 'button'
+    fullWidth: false
   }
 } satisfies Meta<typeof DButton>
 

@@ -1,6 +1,6 @@
 {
   "name": "dnr-ui",
-  "version": "1.0.9-dev",
+  "version": "1.1.0-dev",
   "type": "module",
   "files": [
     "dist"
@@ -24,6 +24,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@storybook/addon-actions": "^7.0.24",
     "@storybook/addons": "^7.0.24",
     "tailwind-merge": "^1.13.2",
     "vue": "^3.3.4"
