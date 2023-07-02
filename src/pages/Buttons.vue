@@ -96,4 +96,3 @@ function onClick(event: Event) {
     </DCard>
   </DCard>
 </template>
-@/components/DButton/Button.vue @/components/DButton/Button.vue
