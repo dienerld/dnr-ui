@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import Cards from './pages/Cards.vue'
 import Buttons from './pages/Buttons.vue'
-import { DButton } from '@/components/DButton'
+import { DButton } from './components/DButton'
 
 const theme = ref('light')
 </script>

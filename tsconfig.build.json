@@ -4,8 +4,7 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/components/*.vue"
+    "src/components/**/*.vue"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

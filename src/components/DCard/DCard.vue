@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { concatClass } from '@/utils/utilsCss'
-import { Colors, Elevations } from '@/types'
+import { concatClass } from '../../utils/utilsCss'
+import { Colors, Elevations } from '../../types'
 
 export interface DCardProps {
   color?: Colors

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Colors } from '@/types'
-import { DCard, DTypography } from '@/components'
-import { DButton, sizeButton, variantButton } from '@/components/DButton'
-import { IconAcademicCap } from '@/icons'
+import { Colors } from '../types'
+import { DCard, DTypography } from '../components'
+import { DButton, sizeButton, variantButton } from '../components/DButton'
+import { IconAcademicCap } from '../icons'
 
 const variants: variantButton[] = ['contained', 'outlined', 'minimal', 'icon']
 const sizes: sizeButton[] = ['sm', 'md', 'lg']

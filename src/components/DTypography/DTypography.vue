@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Colors } from '@/types'
-import { concatClass, importantClass } from '@/utils/utilsCss'
 import { Ref, computed, ref } from 'vue'
+import { Colors } from '../../types'
+import { concatClass, importantClass } from '../../utils/utilsCss'
 type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'span' | 'p'
 
 interface TypographyProps {

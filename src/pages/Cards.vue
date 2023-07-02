@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import DButton from '@/components/DButton/DButton.vue'
-import DCard from '@/components/DCard'
-import DTypography from '@/components/DTypography'
+import DButton from '../components/DButton/DButton.vue'
+import DCard from '../components/DCard'
+import DTypography from '../components/DTypography'
 </script>
 
 <template>

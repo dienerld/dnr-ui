@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Colors } from '@/types'
-import { concatClass } from '@/utils/utilsCss'
-import { IconLoading } from '@/icons'
+import { Colors } from '../../types'
+import { concatClass } from '../../utils/utilsCss'
+import { IconLoading } from '../../icons'
 
 export type variantButton = 'contained' | 'outlined' | 'minimal' | 'icon'
 
