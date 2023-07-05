@@ -6,14 +6,14 @@ import { IconLoading } from '../../icons'
 
 export type variantButton = 'contained' | 'outlined' | 'minimal' | 'icon'
 
-export type sizeButton = 'sm' | 'md' | 'lg'
+export type sizeButton = 'sm' | 'md' | 'lg' | 'min'
 export interface ButtonProps {
   variant: variantButton
   color?: Colors
   size?: sizeButton
   fullWidth?: boolean
   disabled?: boolean
-  class?: string
+  class?: any
   loading?: boolean
   to?: string
 }
@@ -37,12 +37,13 @@ const twVariant: Record<variantButton | 'disabled' | 'loading', string> = {
       data-[color=secondary]:hover:text-white
     `,
 
-  icon: 'bg-uie-primary',
+  icon: 'bg-transparent',
   disabled: 'bg-uie-primary text-uit-tertiary pointer-events-none',
   loading: 'pointer-events-none'
 }
 
 const twSize: Record<sizeButton, string> = {
+  min: 'text-xs',
   sm: 'text-xs py-1 px-2',
   md: 'text-sm py-2 px-4',
   lg: 'text-base py-2 px-6'
@@ -80,7 +81,7 @@ const classList = computed<string>(() => {
     </slot>
 
     <slot v-else-if="variant === 'icon'" name="icon">
-      <div class="">
+      <div>
         <slot />
       </div>
     </slot>

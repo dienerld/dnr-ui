@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Ref, computed, ref } from 'vue'
 import { Colors } from '../../types'
-import { concatClass, importantClass } from '../../utils/utilsCss'
+import { concatClass } from '../../utils/utilsCss'
 type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'span' | 'p'
 
 interface TypographyProps {
@@ -36,7 +36,7 @@ const classList = computed(() => {
         `text-uit-primary
         data-[color=secondary]:text-uit-secondary`,
         classList,
-        importantClass($props.class)
+        props.class ?? ''
       )
     "
   >
