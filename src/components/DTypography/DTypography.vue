@@ -2,7 +2,7 @@
 import { Ref, computed, ref } from 'vue'
 import { Colors } from '../../types'
 import { concatClass } from '../../utils/utilsCss'
-type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'span' | 'p'
+type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'span' | 'p' | 'label'
 
 interface TypographyProps {
   is: Variant

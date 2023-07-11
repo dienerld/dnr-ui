@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ButtonHTMLAttributes, computed, useAttrs } from 'vue'
 import { Colors } from '../../types'
 import { concatClass } from '../../utils/utilsCss'
 import { IconLoading } from '../../icons'
@@ -7,18 +7,24 @@ import { IconLoading } from '../../icons'
 export type variantButton = 'contained' | 'outlined' | 'minimal' | 'icon'
 
 export type sizeButton = 'sm' | 'md' | 'lg' | 'min'
-export interface ButtonProps {
+export interface ButtonCustomProps {
   variant: variantButton
+  type?: 'button' | 'submit'
   color?: Colors
   size?: sizeButton
   fullWidth?: boolean
-  disabled?: boolean
   class?: any
   loading?: boolean
+  rounded?: boolean
   to?: string
 }
-const props = defineProps<ButtonProps>()
 
+interface ButtonProps
+  extends /* @vue-ignore */ Omit<ButtonHTMLAttributes, 'type' | 'color'>,
+    ButtonCustomProps {}
+
+const props = defineProps<ButtonProps>()
+const attrs = useAttrs()
 const twVariant: Record<variantButton | 'disabled' | 'loading', string> = {
   contained: `bg-brand hover:bg-brand-light text-white
       data-[color=secondary]:bg-brand-secondary
@@ -37,7 +43,13 @@ const twVariant: Record<variantButton | 'disabled' | 'loading', string> = {
       data-[color=secondary]:hover:text-white
     `,
 
-  icon: 'bg-transparent',
+  icon: `bg-transparent p-1 focus:border-none focus:outline-1
+      focus:outline-brand-light
+      data-[color=secondary]:text-brand-secondary
+      data-[color=secondary]:hover:bg-brand-secondary-light
+      data-[color=secondary]:hover:text-white
+      data-[color=secondary]:focus:outline-brand-secondary-light
+      `,
   disabled: 'bg-uie-primary text-uit-tertiary pointer-events-none',
   loading: 'pointer-events-none'
 }
@@ -51,10 +63,10 @@ const twSize: Record<sizeButton, string> = {
 
 const classList = computed<string>(() => {
   return concatClass(
-    'flex items-center justify-center',
+    'flex items-center justify-center w-1/2',
     twVariant[props.disabled ? 'disabled' : props.variant],
     props.loading ? twVariant.loading : '',
-    twSize[props.size || 'md'],
+    twSize[props.size ?? 'md'],
     props.fullWidth ? 'w-full' : ''
   )
 })
@@ -62,14 +74,16 @@ const classList = computed<string>(() => {
 
 <template>
   <button
-    type="button"
+    v-bind="attrs"
+    :type="props.type ?? 'button'"
     :data-color="color"
     :disabled="props.disabled"
     :class="
       concatClass(
-        'rounded-full font-bold h-min leading-tight cursor-pointer',
+        'font-bold h-min leading-tight cursor-pointer min-w-min',
+        props.rounded ? 'rounded-full' : 'rounded-xl',
         classList,
-        $props.class ?? ''
+        props.class ?? ''
       )
     "
   >

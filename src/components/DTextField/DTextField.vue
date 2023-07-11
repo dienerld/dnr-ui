@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { InputHTMLAttributes, computed, ref, useAttrs, watch } from 'vue'
 import { IconWarning, IconEye, IconEyeSlash } from '../../icons'
 import { Colors } from '../../types'
 import { concatClass } from '../../utils/utilsCss'
 import { DButton } from '..'
 
-interface TextFieldProps {
-  placeholder: string
+interface TextFieldCustomProps {
   type?: 'text' | 'password' | 'email'
+  placeholder?: string
   rounded?: boolean
   color?: Colors
   class?: string
@@ -16,17 +16,25 @@ interface TextFieldProps {
   error?: boolean
   helperText?: string
   value?: string
+  fullWidth?: boolean
 }
 
-const props = defineProps<TextFieldProps>()
-const hasIcon = computed(() => {
-  return props.type === 'password' || props.error
-})
+interface TextFieldProps
+  extends /* @vue-ignore */ Omit<
+      InputHTMLAttributes,
+      'placeholder' | 'type' | 'color' | 'class' | 'value'
+    >,
+    TextFieldCustomProps {}
 
-const emit = defineEmits(['change', 'keyup', 'update:Value'])
+const emit = defineEmits(['change', 'keyup', 'update:value'])
+const props = defineProps<TextFieldProps>()
+const attrs = useAttrs()
 
 const passwordIsVisible = ref(false)
 const inputType = ref(props.type || 'text')
+
+const hasIcon = computed(() => props.type === 'password' || props.error)
+
 watch(passwordIsVisible, () => {
   if (props.type === 'password' && !passwordIsVisible.value) {
     inputType.value = 'password'
@@ -37,9 +45,18 @@ watch(passwordIsVisible, () => {
 </script>
 
 <template>
-  <div :class="concatClass('flex flex-1 flex-col', $props.class ?? '')">
-    <div class="relative flex w-full flex-1 items-center">
+  <div
+    :class="
+      concatClass(
+        'flex flex-col w-1/2',
+        fullWidth ? 'w-full' : '',
+        $props.class ?? ''
+      )
+    "
+  >
+    <div class="relative flex items-center">
       <input
+        v-bind="attrs"
         :type="inputType"
         :data-color="color"
         :data-error="error"
@@ -47,12 +64,9 @@ watch(passwordIsVisible, () => {
           concatClass(
             `
             w-full p-2 indent-1
-            text-uit-primary
-            bg-uie-primary
-            border-none
-            outline-1
-            focus:outline
-            active:outline-2
+            text-uit-primary bg-uie-primary
+            border-none outline-1
+            focus:outline active:outline-2
             focus:outline-uie-secondary
             active:outline-uie-secondary
             hover:outline-uie-secondary
@@ -72,32 +86,42 @@ watch(passwordIsVisible, () => {
             data-[error=true]:hover:outline-uie-error
           `,
             rounded ? 'rounded-full' : 'rounded-xl',
-            hasIcon ? 'pr-11' : '',
+            hasIcon ? (error ? 'pr-16' : 'pr-11') : '',
             $props.inputClass ?? ''
           )
         "
-        :placeholder="placeholder"
+        :placeholder="props.placeholder"
         :value="value"
-        @input="(e: any) => emit('update:Value', e.target.value)"
-        @keyup="emit('keyup', $event)"
-        @change="emit('change', $event)"
+        @input="(e: any) => emit('update:value', e.target.value)"
+        @keyup="(e: any) => emit('keyup', e)"
+        @change="(e: any) => emit('change', e)"
       />
-      <div class="absolute right-4" v-if="hasIcon">
-        <div class="flex gap-2" v-if="type === 'password'">
+      <div class="absolute right-2 flex" v-if="hasIcon">
+        <div class="flex items-center" v-if="type === 'password'">
           <IconWarning v-if="error" />
           <DButton
+            :color="props.color"
             size="min"
             variant="icon"
             @click="passwordIsVisible = !passwordIsVisible"
             v-if="type === 'password'"
+            class="has-tooltip"
             :class="{ 'text-white': color === 'secondary' }"
           >
-            <IconEyeSlash v-if="passwordIsVisible" />
-            <IconEye v-else />
+            <div v-if="passwordIsVisible">
+              <IconEyeSlash />
+              <span class="sr-only">Hidden Password</span>
+            </div>
+            <div v-else>
+              <IconEye />
+              <span class="sr-only">Show Password</span>
+            </div>
           </DButton>
         </div>
 
-        <div v-if="type === 'email'"></div>
+        <div v-if="type === 'email'">
+          <IconWarning v-if="error" class="text-uit-error" />
+        </div>
       </div>
     </div>
 
@@ -111,3 +135,9 @@ watch(passwordIsVisible, () => {
     </span>
   </div>
 </template>
+
+<style scoped>
+.full-width {
+  width: 100%;
+}
+</style>

@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { BaseHTMLAttributes, computed, useAttrs } from 'vue'
 import { concatClass } from '../../utils/utilsCss'
 import { Colors, Elevations } from '../../types'
 
-export interface DCardProps {
+export interface DCardProps
+  extends /* @vue-ignore */ Omit<BaseHTMLAttributes, 'class'> {
   color?: Colors
   class?: string
   elevation?: Elevations
 }
 
 const props = defineProps<DCardProps>()
+const attrs = useAttrs()
 
 // TODO - Definir shadows
 const classList = computed(() => {
@@ -24,6 +26,7 @@ const classList = computed(() => {
 </script>
 <template>
   <div
+    v-bind="attrs"
     :data-color="color"
     :class="
       concatClass(

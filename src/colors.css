@@ -21,18 +21,16 @@
   --uie-error: hsl(17, 82%, 63%);
   --uie-neutral: hsl(0, 0%, 92%);
   --uie-overlay: hsla(250, 58%, 28%, 0.8);
-
 }
 
 .dark {
-
   --page: hsl(0, 0%, 15%);
   --page-accent: hsl(0, 0%, 25%);
 
   --brand: hsl(250, 58%, 28%);
   --brand-light: hsl(236, 61%, 38%);
 
+  --uit-primary: hsl(0, 0%, 80%);
+
   --uie-neutral: hsl(0, 0%, 29%);
-
-
 }
