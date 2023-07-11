@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import DButton from '../components/DButton/DButton.vue'
-import DCard from '../components/DCard'
-import DTypography from '../components/DTypography'
+import DButton from '../lib/components/DButton/DButton.vue'
+import DCard from '../lib/components/DCard'
+import DTypography from '../lib/components/DTypography'
 </script>
 
 <template>
@@ -27,3 +27,4 @@ import DTypography from '../components/DTypography'
     </DCard>
   </div>
 </template>
+../lib/components/DButton/DButton.vue../lib/components/DCard../lib/components/DTypography

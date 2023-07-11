@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Colors } from '../types'
-import { DCard, DTypography } from '../components'
-import { DButton, sizeButton, variantButton } from '../components/DButton'
-import { IconAcademicCap } from '../icons'
+import { Colors } from '../lib/types'
+import { DCard, DTypography } from '../lib/components'
+import { DButton, sizeButton, variantButton } from '../lib/components/DButton'
+import { IconAcademicCap } from '../lib/icons'
 
 const variants: variantButton[] = ['contained', 'outlined', 'minimal', 'icon']
 const sizes: sizeButton[] = ['sm', 'md', 'lg']
@@ -96,3 +96,4 @@ function onClick(event: Event) {
     </DCard>
   </DCard>
 </template>
+../lib/components../lib/components/DButton ../lib/types

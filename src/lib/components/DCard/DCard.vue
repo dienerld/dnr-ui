@@ -42,3 +42,4 @@ const classList = computed(() => {
     <slot />
   </div>
 </template>
+../../../utils/utilsCss../../../types

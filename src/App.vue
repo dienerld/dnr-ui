@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import Cards from './pages/Cards.vue'
 import Buttons from './pages/Buttons.vue'
-import { DButton } from './components/DButton'
+import { DButton } from './lib/components/DButton'
 import Inputs from './pages/Inputs.vue'
 
 const theme = ref('light')
@@ -19,16 +19,13 @@ const theme = ref('light')
       </DButton>
       <span class="p-2 text-black">{{ theme }}</span>
     </div>
-
-    <!--
-  <Buttons
-  class="container mx-auto flex flex-col bg-uie-neutral dark:bg-slate-500"
-  />
-  <Cards class="bg-uie-primary dark:bg-slate-500" />
--->
-
+    <Buttons
+      class="container mx-auto flex flex-col bg-uie-neutral dark:bg-slate-500"
+    />
+    <Cards class="bg-uie-primary dark:bg-slate-500" />
     <Inputs class="bg-uie-primary dark:bg-slate-500" />
   </div>
 </template>
 
 <style scoped></style>
+./lib/components/DButton

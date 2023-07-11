@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { reactive, ref, watch } from 'vue'
-import { DButton, DTypography } from '..'
-import DCard from '../components/DCard/DCard.vue'
-import DTextField from '../components/DTextField'
+import { DButton, DTypography } from '../lib/components'
+import DCard from '../lib/components/DCard'
+import DTextField from '../lib/components/DTextField'
 
 const error = ref(false)
 const login = reactive({
@@ -106,3 +106,4 @@ watch(
     </DCard>
   </div>
 </template>
+../lib/components/DCard/DCard.vue../lib/components/DTextField ../lib

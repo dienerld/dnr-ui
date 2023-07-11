@@ -19,7 +19,7 @@ export interface ButtonCustomProps {
   to?: string
 }
 
-interface ButtonProps
+export interface ButtonProps
   extends /* @vue-ignore */ Omit<ButtonHTMLAttributes, 'type' | 'color'>,
     ButtonCustomProps {}
 
@@ -103,3 +103,4 @@ const classList = computed<string>(() => {
     <slot v-else />
   </button>
 </template>
+../../../types../../../utils/utilsCss../../../icons
