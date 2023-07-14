@@ -44,11 +44,12 @@ const twVariant: Record<variantButton | 'disabled' | 'loading', string> = {
     `,
 
   icon: `bg-transparent p-1 focus:border-none focus:outline-1
-      focus:outline-brand-light
+      focus:outline-brand-light active:bg-brand-light transition
       data-[color=secondary]:text-brand-secondary
       data-[color=secondary]:hover:bg-brand-secondary-light
       data-[color=secondary]:hover:text-white
       data-[color=secondary]:focus:outline-brand-secondary-light
+      data-[color=secondary]:active:bg-brand-light
       `,
   disabled: 'bg-uie-primary text-uit-tertiary pointer-events-none',
   loading: 'pointer-events-none'
@@ -103,4 +104,3 @@ const classList = computed<string>(() => {
     <slot v-else />
   </button>
 </template>
-../../../types../../../utils/utilsCss../../../icons

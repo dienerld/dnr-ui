@@ -31,8 +31,8 @@ const classList = computed(() => {
     :class="
       concatClass(
         `flex flex-nowrap flex-col gap-2 rounded-md
-          bg-uie-neutral p-2 text-start text-brand shadow-sm
-          data-[color=secondary]:bg-brand-secondary
+          bg-uie-primary p-2 text-start text-brand shadow-sm
+          data-[color=secondary]:bg-uie-secondary
         `,
         classList,
         $props.class ?? ''
@@ -42,4 +42,3 @@ const classList = computed(() => {
     <slot />
   </div>
 </template>
-../../../utils/utilsCss../../../types
