@@ -22,6 +22,14 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "node_modules": ["node_modules"],
+      "@/*": ["src/*"],
+      "@lib/*": ["src/lib/*"],
+      "@docs/*": ["src/docs/*"]
+    }
   },
 
   "references": [{ "path": "./tsconfig.node.json" }]

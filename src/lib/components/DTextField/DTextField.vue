@@ -105,7 +105,6 @@ watch(passwordIsVisible, () => {
             variant="icon"
             @click="passwordIsVisible = !passwordIsVisible"
             v-if="type === 'password'"
-            class="has-tooltip"
             :class="{ 'text-white': color === 'secondary' }"
           >
             <div v-if="passwordIsVisible">
@@ -135,10 +134,3 @@ watch(passwordIsVisible, () => {
     </span>
   </div>
 </template>
-
-<style scoped>
-.full-width {
-  width: 100%;
-}
-</style>
-../../../icons../../../types../../../utils/utilsCss

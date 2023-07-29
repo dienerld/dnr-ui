@@ -2,7 +2,16 @@
 import { Ref, computed, ref } from 'vue'
 import { Colors } from '../../types'
 import { concatClass } from '../../utils/utilsCss'
-type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'span' | 'p' | 'label'
+type Variant =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'span'
+  | 'p'
+  | 'a'
+  | 'label'
+  | Record<string, string>
 
 interface TypographyProps {
   is: Variant
@@ -12,19 +21,27 @@ interface TypographyProps {
 }
 
 const props = defineProps<TypographyProps>()
-
 const Tag: Ref<any> = ref(props.is || 'p')
 const classList = computed(() => {
-  const twBase: Record<string, string> = {
-    h1: 'text-3xl font-bold',
-    h2: 'font-2xl font-semibold',
-    h3: 'text-xl font-medium',
-    h4: 'text-lg font-medium',
-    span: 'text-xs text-muted',
-    p: 'text-base'
+  const twBase = (kind: Variant): string => {
+    if (typeof kind !== 'string') {
+      kind = 'p'
+    }
+
+    const options: Record<string, string> = {
+      h1: 'text-3xl font-bold',
+      h2: 'font-2xl font-semibold',
+      h3: 'text-xl font-medium',
+      h4: 'text-lg font-medium',
+      span: 'text-xs text-muted',
+      p: 'text-base',
+      a: 'text-base cursor-pointer'
+    }
+
+    return options[kind]
   }
 
-  return concatClass(twBase[props.variant || props.is])
+  return concatClass(twBase(props.variant || props.is))
 })
 </script>
 
@@ -43,4 +60,3 @@ const classList = computed(() => {
     <slot />
   </Tag>
 </template>
-../../../types../../../utils/utilsCss

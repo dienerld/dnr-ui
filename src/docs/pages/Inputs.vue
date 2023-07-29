@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { reactive, ref, watch } from 'vue'
-import { DButton, DTypography } from '../lib/components'
-import DCard from '../lib/components/DCard'
-import DTextField from '../lib/components/DTextField'
+import { DButton, DTypography } from '@lib/components'
+import DCard from '@lib/components/DCard'
+import DTextField from '@lib/components/DTextField'
 
 const error = ref(false)
 const login = reactive({
@@ -17,6 +17,7 @@ const loginValid = reactive({
 watch(
   () => login.email,
   () => {
+    // @ts-expect-error
     loginValid.email = login.email.match(
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     )
@@ -72,7 +73,7 @@ watch(
 
     <DCard class="my-4">
       <form action="" autocomplete="on">
-        <DTypography is="label" for="email"> Using v-model</DTypography>
+        <DTypography is="label" for="email"> Using v-model </DTypography>
         <DTextField
           id="email"
           name=""
@@ -106,4 +107,3 @@ watch(
     </DCard>
   </div>
 </template>
-../lib/components/DCard/DCard.vue../lib/components/DTextField ../lib

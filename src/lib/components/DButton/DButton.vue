@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ButtonHTMLAttributes, computed, useAttrs } from 'vue'
+import { ButtonHTMLAttributes, computed, shallowRef, useAttrs } from 'vue'
 import { Colors } from '../../types'
 import { concatClass } from '../../utils/utilsCss'
 import { IconLoading } from '../../icons'
@@ -16,11 +16,11 @@ export interface ButtonCustomProps {
   class?: any
   loading?: boolean
   rounded?: boolean
-  to?: string
+  is?: string | Record<string, string>
 }
 
 export interface ButtonProps
-  extends /* @vue-ignore */ Omit<ButtonHTMLAttributes, 'type' | 'color'>,
+  extends /* @vue-ignore */ Omit<ButtonHTMLAttributes, 'type' | 'color' | 'is'>,
     ButtonCustomProps {}
 
 const props = defineProps<ButtonProps>()
@@ -62,6 +62,8 @@ const twSize: Record<sizeButton, string> = {
   lg: 'text-base py-2 px-6'
 }
 
+const Tag = shallowRef<any>(props.is ?? 'button')
+
 const classList = computed<string>(() => {
   return concatClass(
     'flex items-center justify-center w-1/2',
@@ -74,7 +76,7 @@ const classList = computed<string>(() => {
 </script>
 
 <template>
-  <button
+  <Tag
     v-bind="attrs"
     :type="props.type ?? 'button'"
     :data-color="color"
@@ -102,5 +104,5 @@ const classList = computed<string>(() => {
     </slot>
 
     <slot v-else />
-  </button>
+  </Tag>
 </template>

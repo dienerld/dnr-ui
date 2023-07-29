@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Colors } from '../lib/types'
-import { DCard, DTypography } from '../lib/components'
-import { DButton, sizeButton, variantButton } from '../lib/components/DButton'
-import { IconAcademicCap } from '../lib/icons'
+import { Colors } from '@lib/types'
+import { DCard, DTypography } from '@lib/components'
+import { DButton, sizeButton, variantButton } from '@lib/components/DButton'
+import { IconAcademicCap } from '@lib/icons'
 
 const variants: variantButton[] = ['contained', 'outlined', 'minimal', 'icon']
 const sizes: sizeButton[] = ['sm', 'md', 'lg']
@@ -49,8 +49,8 @@ function onClick(event: Event) {
         <DButton :color="color" variant="contained" size="sm" disabled>
           disabled
         </DButton>
-        <DButton :color="color" variant="contained" size="md" loading>
-        </DButton>
+        <DButton :color="color" variant="contained" size="md" loading />
+
         <DButton
           :color="color"
           variant="contained"
@@ -90,10 +90,15 @@ function onClick(event: Event) {
       <DButton :color="color" variant="contained" size="md" full-width>
         full width
       </DButton>
-      <DButton :color="color" variant="contained" size="lg" full-width>
+      <DButton
+        :color="color"
+        variant="contained"
+        size="lg"
+        full-width
+        href="https://google.com"
+      >
         full width
       </DButton>
     </DCard>
   </DCard>
 </template>
-../lib/components../lib/components/DButton ../lib/types

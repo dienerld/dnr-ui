@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import Cards from './pages/Cards.vue'
 import Buttons from './pages/Buttons.vue'
-import { DButton } from './lib/components/DButton'
+import { DButton } from '@lib/components/DButton'
 import Inputs from './pages/Inputs.vue'
 
 const theme = ref('light')
@@ -28,4 +28,3 @@ const theme = ref('light')
 </template>
 
 <style scoped></style>
-./lib/components/DButton
