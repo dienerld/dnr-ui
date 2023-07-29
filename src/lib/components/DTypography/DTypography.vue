@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Ref, computed, ref } from 'vue'
-import { Colors } from '../../types'
 import { concatClass } from '../../utils/utilsCss'
 type Variant =
   | 'h1'
@@ -13,14 +12,13 @@ type Variant =
   | 'label'
   | Record<string, string>
 
-interface TypographyProps {
+export type DTypographyProps = {
   is: Variant
   variant?: Variant
-  color?: Colors
   class?: string
 }
 
-const props = defineProps<TypographyProps>()
+const props = defineProps<DTypographyProps>()
 const Tag: Ref<any> = ref(props.is || 'p')
 const classList = computed(() => {
   const twBase = (kind: Variant): string => {

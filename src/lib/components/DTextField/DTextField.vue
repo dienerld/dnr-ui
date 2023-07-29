@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { InputHTMLAttributes, computed, ref, useAttrs, watch } from 'vue'
-import { IconWarning, IconEye, IconEyeSlash } from '../../icons'
+import { DButton } from '..'
+import { IconEye, IconEyeSlash, IconWarning } from '../../icons'
 import { Colors } from '../../types'
 import { concatClass } from '../../utils/utilsCss'
-import { DButton } from '..'
 
 interface TextFieldCustomProps {
   type?: 'text' | 'password' | 'email'
@@ -72,13 +72,6 @@ watch(passwordIsVisible, () => {
             hover:outline-uie-secondary
             hover:text-uit-primary
             placeholder:text-uit-secondary
-            data-[color=secondary]:bg-uie-secondary
-            data-[color=secondary]:text-brand-secondary
-            data-[color=secondary]:placeholder:text-uit-primary
-            data-[color=secondary]:hover:text-uit-primary
-            data-[color=secondary]:focus:outline-uie-primary
-            data-[color=secondary]:active:outline-uie-primary
-            data-[color=secondary]:hover:outline-uie-primary
             data-[error=true]:outline
             data-[error=true]:outline-uie-error
             data-[error=true]:focus:outline-uie-error

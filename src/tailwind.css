@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+@font-face {
+  font-family: "Roboto" sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+}
 
+@layer base {
   * {
     font-family: "Roboto", sans-serif;
     box-sizing: border-box;
