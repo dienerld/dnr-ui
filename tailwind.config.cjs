@@ -73,15 +73,15 @@ module.exports = {
           DEFAULT: 'rgba(var(--brand), <alpha-value>)',
           light: 'rgba(var(--brand-light), <alpha-value>)'
         },
-        disabled: 'rgba(var(--disabled), <alpha-value>)'
+        disabled: 'rgba(var(--disabled), <alpha-value>)',
+        error: 'rgba(var(--uie-error), <alpha-value>)',
+        success: 'rgba(var(--uie-success), <alpha-value>)',
+        neutral: 'rgba(var(--uie-neutral), <alpha-value>)'
       },
       backgroundColor: {
         primary: 'rgba(var(--uie-primary), <alpha-value>)',
         secondary: 'rgba(var(--uie-secondary), <alpha-value>)',
         tertiary: 'rgba(var(--uie-tertiary), <alpha-value>)',
-        success: 'rgba(var(--uie-success), <alpha-value>)',
-        error: 'rgba(var(--uie-error), <alpha-value>)',
-        neutral: 'rgba(var(--uie-neutral), <alpha-value>)',
         overlay: 'rgba(var(--uie-overlay), <alpha-value>)',
         page: {
           DEFAULT: 'rgba(var(--page), <alpha-value>)',
