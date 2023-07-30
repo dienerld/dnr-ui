@@ -28,11 +28,12 @@ const classList = computed(() => {
 
     const options: Record<string, string> = {
       h1: 'text-3xl font-bold',
-      h2: 'font-2xl font-semibold',
-      h3: 'text-xl font-medium',
-      h4: 'text-lg font-medium',
-      span: 'text-xs text-muted',
-      p: 'text-base'
+      h2: 'font-2xl font-bold',
+      h3: 'text-xl font-bold',
+      h4: 'text-lg font-bold',
+      p: 'text-md',
+      span: 'text-sm',
+      label: 'text-xs'
     }
 
     return options[kind]

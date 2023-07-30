@@ -4,16 +4,13 @@ module.exports = {
   darkMode: 'class',
   theme: {
     fontSize: {
-      h1: '2rem',
-      h2: '1.5rem',
-      h3: '1.25rem',
-      h4: '1rem',
-      h5: '0.875rem',
-      h6: '0.75rem',
-
-      xs: '0.75rem',
-      sm: '0.875rem',
-      md: '1rem'
+      xs: 'var(--text-xs)',
+      sm: 'var(--text-sm)',
+      md: 'var(--text-md)',
+      lg: 'var(--text-lg)',
+      xl: 'var(--text-xl)',
+      '2xl': 'var(--text-2xl)',
+      '3xl': 'var(--text-3xl)'
     },
 
     screens: {
