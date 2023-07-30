@@ -1,4 +1,5 @@
 import { type StoryObj, type Meta } from '@storybook/vue3'
+
 import DTextField from './DTextField.vue'
 import DCard from '../DCard/DCard.vue'
 
@@ -6,6 +7,8 @@ const meta: Meta<typeof DTextField> = {
   title: 'Components/DTextField',
   component: DTextField,
   argTypes: {
+    onInput: { action: 'input' },
+    onChange: { action: 'changed' },
     type: {
       control: {
         type: 'select',
@@ -47,9 +50,7 @@ const meta: Meta<typeof DTextField> = {
       return { args }
     },
     template: `
-    <DCard class="p-4  bg-brand-light">
       <DTextField v-bind="args" />
-    </DCard>
     `
   })
 }
@@ -58,9 +59,7 @@ export default meta
 
 type Story = StoryObj<typeof DTextField>
 
-export const Default: Story = {
-  args: {}
-}
+export const Default: Story = {}
 
 export const Disabled: Story = {
   args: {
