@@ -1,6 +1,3 @@
-// Button.stories.ts
-
-// Replace vue3 with vue if you are using Storybook for Vue 2
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
 
@@ -8,61 +5,59 @@ import DButton, { type ButtonProps } from './DButton.vue'
 
 const meta: Meta<typeof DButton> = {
   component: DButton,
-  tags: ['autodocs'],
   title: 'Components/DButton',
-
   argTypes: {
     variant: {
       options: ['contained', 'outlined', 'minimal'],
-      control: 'radio',
-      defaultValue: 'contained'
+      control: 'radio'
     },
     disabled: {
       type: 'boolean',
-      control: 'boolean',
-      defaultValue: false
+      control: 'boolean'
     },
     size: {
       type: 'string',
-      options: ['sm', 'md', 'lg'],
-      control: 'radio',
-      defaultValue: 'md'
+      options: ['xs', 'sm', 'md', 'lg'],
+      control: 'radio'
     },
     fullWidth: {
+      type: 'boolean',
+      control: 'boolean'
+    },
+    class: {
+      type: 'string',
+      control: 'text'
+    },
+    rounded: {
       type: 'boolean',
       control: 'boolean',
       defaultValue: false
     },
-
-    color: {
-      options: ['primary', 'secondary', 'custom'],
+    type: {
+      options: ['submit', 'reset', 'button'],
       type: 'string',
-      control: 'radio',
-      defaultValue: 'primary'
+      control: 'select',
+      defaultValue: 'button'
     },
-    class: {
+    // @ts-expect-error
+    children: {
       type: 'string',
       control: 'text'
     }
   },
   args: {
     disabled: false,
-    color: 'primary',
     variant: 'contained',
     size: 'md',
-    fullWidth: false
+    fullWidth: false,
+    rounded: false
   }
 } satisfies Meta<typeof DButton>
 
 export default meta
 type Story = StoryObj<typeof DButton>
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/vue/api/csf
- * to learn how to use render functions.
- */
-export const Primary: Story = {
+export const Contained: Story = {
   render: (args: ButtonProps) => ({
     components: { DButton },
     setup() {
@@ -72,49 +67,79 @@ export const Primary: Story = {
       }
     },
     template:
-      '<DButton v-bind="args" @click="onClick">{{ args.variant }}</DButton>'
+      '<DButton v-bind="args" @click="onClick">{{ args.children || args.variant }}</DButton>'
   })
 }
 
-export const Secondary: Story = {
+export const Outline: Story = {
   render: (args: ButtonProps) => ({
     components: { DButton },
     setup() {
       return { args, onClick: action('onClick') }
     },
     template:
-      '<DButton v-bind="args" @click="onClick">{{ args.variant }}</DButton>'
+      '<DButton v-bind="args" @click="onClick">{{ args.children || args.variant }}</DButton>'
   }),
   args: {
-    variant: 'outlined'
+    variant: 'outline'
   }
 }
 
-export const Tertiary: Story = {
+export const Minimal: Story = {
   render: (args: ButtonProps) => ({
     components: { DButton },
     setup() {
       return { args, onClick: action('onClick') }
     },
     template:
-      '<DButton v-bind="args" class="args.class" @click="onClick">{{ args.variant }}</DButton>'
+      '<DButton v-bind="args" @click="onClick">{{ args.children || args.variant }}</DButton>'
   }),
   args: {
     variant: 'minimal'
   }
 }
 
-export const Disabled: Story = {
+export const ContainedDisabled: Story = {
   render: (args: ButtonProps) => ({
     components: { DButton },
     setup() {
       return { args, onClick: action('onClick') }
     },
     template:
-      '<DButton v-bind="args" class="args.class" @click="onClick">{{ args.variant }}</DButton>'
+      '<DButton v-bind="args" @click="onClick">{{ args.children || args.variant }}</DButton>'
   }),
   args: {
     variant: 'contained',
+    disabled: true
+  }
+}
+
+export const OutlineDisabled: Story = {
+  render: (args: ButtonProps) => ({
+    components: { DButton },
+    setup() {
+      return { args, onClick: action('onClick') }
+    },
+    template:
+      '<DButton v-bind="args" @click="onClick">{{ args.children || args.variant }}</DButton>'
+  }),
+  args: {
+    variant: 'outline',
+    disabled: true
+  }
+}
+
+export const MinimalDisabled: Story = {
+  render: (args: ButtonProps) => ({
+    components: { DButton },
+    setup() {
+      return { args, onClick: action('onClick') }
+    },
+    template:
+      '<DButton v-bind="args" @click="onClick">{{ args.children || args.variant }}</DButton>'
+  }),
+  args: {
+    variant: 'minimal',
     disabled: true
   }
 }

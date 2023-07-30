@@ -1,73 +1,47 @@
 <script setup lang="ts">
-import { ButtonHTMLAttributes, computed, shallowRef, useAttrs } from 'vue'
-import { Colors } from '../../types'
+import { ButtonHTMLAttributes, computed, useAttrs } from 'vue'
 import { concatClass } from '../../utils/utilsCss'
 import { IconLoading } from '../../icons'
 
-export type variantButton = 'contained' | 'outlined' | 'minimal' | 'icon'
+export type variantButton = 'contained' | 'outline' | 'minimal' | 'icon'
 
-export type sizeButton = 'sm' | 'md' | 'lg' | 'min'
+export type sizeButton = 'xs' | 'sm' | 'md' | 'lg'
 export interface ButtonCustomProps {
   variant: variantButton
-  type?: 'button' | 'submit'
-  color?: Colors
+  type?: 'button' | 'submit' | 'reset'
   size?: sizeButton
   fullWidth?: boolean
   class?: any
   loading?: boolean
   rounded?: boolean
-  is?: string | Record<string, string>
 }
 
 export interface ButtonProps
-  extends /* @vue-ignore */ Omit<ButtonHTMLAttributes, 'type' | 'color' | 'is'>,
+  extends /* @vue-ignore */ Omit<ButtonHTMLAttributes, 'type'>,
     ButtonCustomProps {}
 
 const props = defineProps<ButtonProps>()
 const attrs = useAttrs()
-const twVariant: Record<variantButton | 'disabled' | 'loading', string> = {
-  contained: `bg-brand hover:bg-brand-light text-white
-      data-[color=secondary]:bg-brand-secondary
-      data-[color=secondary]:hover:bg-brand-secondary-light
-    `,
-  outlined: `border border-brand text-brand bg-uie-primary
-      hover:bg-brand-light hover:text-white
-      data-[color=secondary]:border-brand-secondary
-      data-[color=secondary]:text-brand-secondary
-      data-[color=secondary]:hover:bg-brand-secondary-light
-      data-[color=secondary]:hover:text-white
-    `,
-  minimal: `bg-uie-primary text-brand hover:bg-brand-light hover:text-white
-      data-[color=secondary]:text-brand-secondary
-      data-[color=secondary]:hover:bg-brand-secondary-light
-      data-[color=secondary]:hover:text-white
-    `,
+const twVariant: Record<variantButton | 'loading', string> = {
+  contained: 'bg-brand hover:bg-brand-light text-white',
+  outline:
+    'border border-brand text-brand bg-primary hover:bg-brand-light hover:text-white',
+  minimal: 'bg-primary text-brand hover:bg-brand-light hover:text-white',
 
-  icon: `bg-transparent p-1 focus:border-none focus:outline-1
-      focus:outline-brand-light active:bg-brand-light transition
-      data-[color=secondary]:text-brand-secondary
-      data-[color=secondary]:hover:bg-brand-secondary-light
-      data-[color=secondary]:hover:text-white
-      data-[color=secondary]:focus:outline-brand-secondary-light
-      data-[color=secondary]:active:bg-brand-light
-      `,
-  disabled: 'bg-uie-primary text-uit-tertiary pointer-events-none',
+  icon: 'bg-transparent p-1 focus:border-none focus:outline-1 focus:outline-brand-light active:bg-brand-light transition',
   loading: 'pointer-events-none'
 }
 
 const twSize: Record<sizeButton, string> = {
-  min: 'text-xs',
+  xs: 'text-xs',
   sm: 'text-xs py-1 px-2',
   md: 'text-sm py-2 px-4',
-  lg: 'text-base py-2 px-6'
+  lg: 'text-base py-3 px-6'
 }
-
-const Tag = shallowRef<any>(props.is ?? 'button')
-
 const classList = computed<string>(() => {
   return concatClass(
-    'flex items-center justify-center w-1/2',
-    twVariant[props.disabled ? 'disabled' : props.variant],
+    'flex items-center justify-center flex-nowrap w-1/3',
+    props.disabled ? '' : twVariant[props.variant],
     props.loading ? twVariant.loading : '',
     twSize[props.size ?? 'md'],
     props.fullWidth ? 'w-full' : ''
@@ -76,14 +50,13 @@ const classList = computed<string>(() => {
 </script>
 
 <template>
-  <Tag
+  <button
     v-bind="attrs"
     :type="props.type ?? 'button'"
-    :data-color="color"
     :disabled="props.disabled"
     :class="
       concatClass(
-        'font-bold h-min leading-tight cursor-pointer min-w-min',
+        'font-bold h-min leading-tight cursor-pointer min-w-min disabled:bg-primary disabled:text-tertiary disabled:pointer-events-none disabled:border-disabled',
         props.rounded ? 'rounded-full' : 'rounded-xl',
         classList,
         props.class ?? ''
@@ -91,7 +64,7 @@ const classList = computed<string>(() => {
     "
   >
     <slot name="loading" v-if="props.loading">
-      <div class="flex justify-center py-0.5">
+      <div class="flex justify-center py-1">
         <span class="sr-only">Loading</span>
         <IconLoading class="animate-spin" />
       </div>
@@ -104,5 +77,5 @@ const classList = computed<string>(() => {
     </slot>
 
     <slot v-else />
-  </Tag>
+  </button>
 </template>
