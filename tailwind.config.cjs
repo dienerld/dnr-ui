@@ -3,22 +3,52 @@ module.exports = {
   content: ['./src/**/*.{html,js,vue}', './src/App.vue'],
   darkMode: 'class',
   theme: {
+    fontSize: {
+      h1: '2rem',
+      h2: '1.5rem',
+      h3: '1.25rem',
+      h4: '1rem',
+      h5: '0.875rem',
+      h6: '0.75rem',
+
+      xs: '0.75rem',
+      sm: '0.875rem',
+      md: '1rem'
+    },
+
+    screens: {
+      mobile: 'var(--screen-mobile)',
+      tablet: 'var(--screen-tablet)',
+      desktop: 'var(--screen-desktop)',
+      tv: 'var(--screen-tv)'
+    },
+    spacing: {
+      none: 'var(--spacing-none) /* 0px */',
+      '4xs': 'var(--spacing-4xs) /* 8px */',
+      '2xs': 'var(--spacing-2xs) /* 12px */',
+      xs: 'var(--spacing-xs) /* 16px */',
+      sm: 'var(--spacing-sm) /* 20px */',
+      md: 'var(--spacing-md) /* 24px */',
+      lg: 'var(--spacing-lg) /* 32px */',
+      xl: 'var(--spacing-xl) /* 40px */',
+      '2xl': 'var(--spacing-2xl) /* 48px */',
+      '4xl': 'var(--spacing-4xl) /* 56px */',
+      0: 'var(--spacing-none) /* 0px */',
+      1: 'var(--spacing-4xs) /* 8px */',
+      2: 'var(--spacing-2xs) /* 12px */',
+      3: 'var(--spacing-xs) /* 16px */',
+      4: 'var(--spacing-sm) /* 20px */',
+      5: 'var(--spacing-md) /* 24px */',
+      6: 'var(--spacing-lg) /* 32px */',
+      7: 'var(--spacing-xl) /* 40px */',
+      8: 'var(--spacing-2xl) /* 48px */',
+      9: 'var(--spacing-4xl) /* 56px */'
+    },
     extend: {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif']
       },
-      fontSize: {
-        h1: '2rem',
-        h2: '1.5rem',
-        h3: '1.25rem',
-        h4: '1rem',
-        h5: '0.875rem',
-        h6: '0.75rem',
 
-        xs: '0.75rem',
-        sm: '0.875rem',
-        base: '1rem'
-      },
       fontWeight: {
         bold: 700,
         regular: 400
@@ -32,45 +62,43 @@ module.exports = {
         't-1': '0px -2px 10px 0px rgba(25, 1, 52, 0.12);',
         't-2': '0px -4px 10px 0px rgba(25, 1, 52, 0.16);'
       },
-      space: {
-        sm: '0.5rem',
-        base: '1rem',
-        lg: '1.5rem',
-        xl: '2.5rem'
-      },
       colors: {
         transparent: 'transparent',
-        black: '#000',
-        white: '#fff',
         brand: {
-          DEFAULT: 'var(--brand)',
-          light: 'var(--brand-light)'
+          DEFAULT: 'rgba(var(--brand), <alpha-value>)',
+          light: 'rgba(var(--brand-light), <alpha-value>)'
         },
-        'brand-secondary': {
-          DEFAULT: 'var(--brand-secondary)',
-          light: 'var(--brand-secondary-light)'
-        },
+        disabled: 'rgba(var(--disabled), <alpha-value>)'
+      },
+      backgroundColor: {
+        primary: 'rgba(var(--uie-primary), <alpha-value>)',
+        secondary: 'rgba(var(--uie-secondary), <alpha-value>)',
+        tertiary: 'rgba(var(--uie-tertiary), <alpha-value>)',
+        success: 'rgba(var(--uie-success), <alpha-value>)',
+        error: 'rgba(var(--uie-error), <alpha-value>)',
+        neutral: 'rgba(var(--uie-neutral), <alpha-value>)',
+        overlay: 'rgba(var(--uie-overlay), <alpha-value>)',
         page: {
-          DEFAULT: 'var(--page)',
-          accent: 'var(--page-accent)'
-        },
-        uit: {
-          primary: 'var(--uit-primary)',
-          secondary: 'var(--uit-secondary)',
-          tertiary: 'var(--uit-tertiary)',
-          success: 'var(--uit-success)',
-          error: 'var(--uit-error)',
-          link: 'var(--uit-link)'
-        },
-        uie: {
-          primary: 'var(--uie-primary)',
-          secondary: 'var(--uie-secondary)',
-          tertiary: 'var(--uie-tertiary)',
-          success: 'var(--uie-success)',
-          error: 'var(--uie-error)',
-          neutral: 'var(--uie-neutral)',
-          overlay: 'var(--uie-overlay)'
+          DEFAULT: 'rgba(var(--page), <alpha-value>)',
+          accent: 'rgba(var(--page-accent), <alpha-value>)'
         }
+      },
+      textColor: {
+        primary: 'rgba(var(--uit-primary), <alpha-value>)',
+        secondary: 'rgba(var(--uit-secondary), <alpha-value>)',
+        tertiary: 'rgba(var(--uit-tertiary), <alpha-value>)',
+        success: 'rgba(var(--uit-success), <alpha-value>)',
+        error: 'rgba(var(--uit-error), <alpha-value>)',
+        link: 'rgba(var(--uit-link), <alpha-value>)'
+      },
+      blur: {
+        DEFAULT: 'var(--blur)'
+      },
+      borderRadius: {
+        none: 'var(--border-radius-none)',
+        sm: 'var(--border-radius-sm)',
+        md: 'var(--border-radius-md)',
+        lg: 'var(--border-radius-lg)'
       }
     }
   },
