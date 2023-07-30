@@ -68,5 +68,11 @@
 
   --uit-primary: 204, 204, 204;
 
+  --uie-primary: 51, 51, 51;
+  --uie-secondary: 18, 106, 106;
+  --uie-tertiary: 18, 18, 179;
+  --uie-success: 110, 160, 160;
+  --uie-error: 222, 41, 41;
+  --uie-overlay: 55, 148, 148;
   --uie-neutral: 74, 74, 74;
 }

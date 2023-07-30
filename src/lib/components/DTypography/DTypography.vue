@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Ref, computed, ref } from 'vue'
+import { computed } from 'vue'
 import { concatClass } from '../../utils/utilsCss'
 type Variant =
   | 'h1'
@@ -8,7 +8,6 @@ type Variant =
   | 'h4'
   | 'span'
   | 'p'
-  | 'a'
   | 'label'
   | Record<string, string>
 
@@ -19,7 +18,8 @@ export type DTypographyProps = {
 }
 
 const props = defineProps<DTypographyProps>()
-const Tag: Ref<any> = ref(props.is || 'p')
+
+const Tag = props.is ?? 'p'
 const classList = computed(() => {
   const twBase = (kind: Variant): string => {
     if (typeof kind !== 'string') {
@@ -32,8 +32,7 @@ const classList = computed(() => {
       h3: 'text-xl font-medium',
       h4: 'text-lg font-medium',
       span: 'text-xs text-muted',
-      p: 'text-base',
-      a: 'text-base cursor-pointer'
+      p: 'text-base'
     }
 
     return options[kind]
@@ -44,17 +43,7 @@ const classList = computed(() => {
 </script>
 
 <template>
-  <Tag
-    :data-color="color"
-    :class="
-      concatClass(
-        `text-uit-primary
-        data-[color=secondary]:text-uit-secondary`,
-        classList,
-        props.class ?? ''
-      )
-    "
-  >
+  <Tag :class="concatClass('text-primary', classList, props.class ?? '')">
     <slot />
   </Tag>
 </template>

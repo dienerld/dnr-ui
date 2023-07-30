@@ -1,27 +1,21 @@
-// Button.stories.ts
-
-// Replace vue3 with vue if you are using Storybook for Vue 2
 import type { Meta, StoryObj } from '@storybook/vue3'
 import DCard, { type DCardProps } from './DCard.vue'
+import DTypography from '../DTypography/DTypography.vue'
 
 const meta: Meta<typeof DCard> = {
   component: DCard,
   title: 'Components/DCard',
-  tags: ['autodocs'],
   argTypes: {
     default: {
       type: 'string'
     },
     class: {
       type: 'string',
-      description: 'tailwind class',
       control: 'text'
     },
-    color: {
-      options: ['primary', 'secondary', 'custom'],
-      type: 'string',
-      control: 'radio',
-      defaultValue: 'primary'
+    overlay: {
+      type: 'boolean',
+      control: 'boolean'
     },
     elevation: {
       options: ['none', '1', '2', '3'],
@@ -31,13 +25,15 @@ const meta: Meta<typeof DCard> = {
     }
   },
   render: (args: DCardProps) => ({
-    components: { DCard },
+    components: { DCard, DTypography },
     setup() {
       return { args }
     },
     template: `
       <DCard v-bind="args">
-        {{ args.default }}
+        <DTypography is="p">
+          {{ args.default }}
+        </DTypography>
       </DCard>
     `
   })
@@ -46,31 +42,16 @@ const meta: Meta<typeof DCard> = {
 export default meta
 type Story = StoryObj<typeof DCard>
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/vue/api/csf
- * to learn how to use render functions.
- */
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    default: 'primary',
-    class: '',
-    color: 'primary'
+    default: 'Card Default',
+    class: ''
   }
 }
 
-export const Secondary: Story = {
+export const Overlay: Story = {
   args: {
-    default: 'Secondary',
-    class: '',
-    color: 'secondary'
-  }
-}
-
-export const Custom: Story = {
-  args: {
-    default: 'Custom background',
-    class: 'bg-red-500 text-white',
-    color: 'custom'
+    default: 'Overlay',
+    overlay: true
   }
 }

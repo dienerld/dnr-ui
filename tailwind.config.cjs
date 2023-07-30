@@ -53,14 +53,22 @@ module.exports = {
         bold: 700,
         regular: 400
       },
+      // boxShadow: {
+      //   none: 'none',
+      //   b: '0px 2px 10px 0px rgba(25, 1, 52, 0.12);',
+      //   'b-1': '0px 4px 10px 0px rgba(25, 1, 52, 0.16);',
+      //   'b-2': '0px 4px 10px 0px rgba(25, 1, 52, 0.16);',
+      //   t: '0px 1px 0px 0px #EAEAEA inset;',
+      //   't-1': '0px -2px 10px 0px rgba(25, 1, 52, 0.12);',
+      //   't-2': '0px -4px 10px 0px rgba(25, 1, 52, 0.16);'
+      // },
       boxShadow: {
-        none: 'none',
-        b: '0px 2px 10px 0px rgba(25, 1, 52, 0.12);',
-        'b-1': '0px 4px 10px 0px rgba(25, 1, 52, 0.16);',
-        'b-2': '0px 4px 10px 0px rgba(25, 1, 52, 0.16);',
-        t: '0px 1px 0px 0px #EAEAEA inset;',
-        't-1': '0px -2px 10px 0px rgba(25, 1, 52, 0.12);',
-        't-2': '0px -4px 10px 0px rgba(25, 1, 52, 0.16);'
+        sm: 'var(--shadow-sm)',
+        md: 'var(--shadow-md)',
+        lg: 'var(--shadow-lg)',
+        focus: 'var(--shadow-focus)',
+        outline: 'var(--shadow-outline)',
+        'button-focus': 'var(--shadow-button-focus)'
       },
       colors: {
         transparent: 'transparent',
