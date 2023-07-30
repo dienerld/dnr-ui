@@ -25,8 +25,8 @@ const attrs = useAttrs()
 const twVariant: Record<variantButton | 'loading', string> = {
   contained: 'bg-brand hover:bg-brand-light text-white',
   outline:
-    'border border-brand text-brand bg-primary hover:bg-brand-light hover:text-white',
-  minimal: 'bg-primary text-brand hover:bg-brand-light hover:text-white',
+    'border border-brand text-primary bg-uie-primary hover:bg-brand-light hover:text-white',
+  minimal: 'bg-uie-primary text-brand hover:bg-brand-light hover:text-white',
 
   icon: 'bg-transparent p-1 focus:border-none focus:outline-1 focus:outline-brand-light active:bg-brand-light transition',
   loading: 'pointer-events-none'
@@ -34,9 +34,9 @@ const twVariant: Record<variantButton | 'loading', string> = {
 
 const twSize: Record<sizeButton, string> = {
   xs: 'text-xs',
-  sm: 'text-xs py-1 px-2',
-  md: 'text-sm py-2 px-4',
-  lg: 'text-base py-3 px-6'
+  sm: 'text-sm py-1 px-2',
+  md: 'text-md py-2 px-4',
+  lg: 'text-lg py-3 px-6'
 }
 const classList = computed<string>(() => {
   return concatClass(
@@ -56,8 +56,8 @@ const classList = computed<string>(() => {
     :disabled="props.disabled"
     :class="
       concatClass(
-        'font-bold h-min leading-tight cursor-pointer min-w-min disabled:bg-primary disabled:text-tertiary disabled:pointer-events-none disabled:border-disabled',
-        props.rounded ? 'rounded-full' : 'rounded-xl',
+        'font-bold h-min leading-tight cursor-pointer min-w-min disabled:bg-uie-primary disabled:text-tertiary disabled:pointer-events-none disabled:border-disabled',
+        props.rounded ? 'rounded-full' : 'rounded-lg',
         classList,
         props.class ?? ''
       )

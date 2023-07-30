@@ -7,7 +7,7 @@ import {
   useAttrs,
   watch
 } from 'vue'
-import { DButton } from '..'
+import { DButton, DTypography } from '..'
 import { IconEye, IconEyeSlash, IconWarning } from '../../icons'
 import { concatClass } from '../../utils/utilsCss'
 
@@ -60,7 +60,7 @@ watch(passwordIsVisible, () => {
       )
     "
   >
-    <div class="relative flex items-center">
+    <div class="relative flex w-full items-center">
       <input
         v-bind="attrs"
         :type="inputType"
@@ -70,23 +70,22 @@ watch(passwordIsVisible, () => {
           concatClass(
             `
             w-full p-2 indent-1
-            text-primary bg-primary
-            border-none outline-1
-            focus:outline active:outline-2
-            hover:text-primary
+            text-secondary bg-uie-primary
+            border border-uie-tertiary
+            outline outline-0 outline-uie-tertiary
+            focus:outline active:outline-1
             placeholder:text-secondary
-            disabled:bg-disabled disabled:text-black
-            data-[error=true]:outline
-            data-[error=true]:outline-error
-            data-[error=true]:bg-error
-            data-[error=true]:bg-opacity-30
-            data-[error=true]:focus:outline-error
+            disabled:bg-uie-tertiary disabled:text-secondary
+            data-[error=true]:border-error
             data-[error=true]:active:outline-error
-            data-[error=true]:hover:outline-error
+            data-[error=true]:focus:border-error
+            data-[error=true]:active:border-error
+            data-[error=true]:hover:border-error
           `,
             rounded ? 'rounded-full' : 'rounded-xl',
             hasIcon ? (error ? 'pr-16' : 'pr-11') : '',
-            $props.inputClass ?? ''
+            inputClass ?? '',
+            fullWidth ? 'w-full' : ''
           )
         "
         :placeholder="props.placeholder"
@@ -97,11 +96,12 @@ watch(passwordIsVisible, () => {
       />
       <div class="absolute right-2 flex" v-if="hasIcon">
         <div class="flex items-center" v-if="type === 'password'">
-          <IconWarning v-if="error" />
+          <IconWarning v-if="error" class="text-error" />
           <DButton
             size="xs"
             variant="icon"
             @click="passwordIsVisible = !passwordIsVisible"
+            class="text-brand dark:text-primary"
             v-if="type === 'password'"
           >
             <div v-if="passwordIsVisible">
@@ -115,19 +115,20 @@ watch(passwordIsVisible, () => {
           </DButton>
         </div>
 
-        <div v-if="type === 'email'">
+        <div v-else>
           <IconWarning v-if="error" class="text-error" />
         </div>
       </div>
     </div>
 
-    <span
+    <DTypography
+      is="span"
       v-if="error"
       :class="
-        concatClass('text-xs indent-3 text-error', $props.spanClass ?? '')
+        concatClass('text-xs indent-2 text-error', $props.spanClass ?? '')
       "
     >
       {{ helperText }}
-    </span>
+    </DTypography>
   </div>
 </template>

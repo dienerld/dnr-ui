@@ -8,7 +8,7 @@
   --disabled: 179, 171, 188;
 
   --uit-primary: 18, 25, 25;
-  --uit-secondary: 18, 106, 106;
+  --uit-secondary: 104, 88, 121;
   --uit-tertiary: 179, 171, 188;
   --uit-success: 110, 160, 160;
   --uit-error: 222, 41, 41;
@@ -16,7 +16,7 @@
 
   --uie-primary: 255, 255, 255;
   --uie-secondary: 18, 106, 106;
-  --uie-tertiary: 18, 18, 179;
+  --uie-tertiary: 179, 171, 188;
   --uie-success: 110, 160, 160;
   --uie-error: 222, 41, 41;
   --uie-neutral: 235, 235, 235;
@@ -56,7 +56,9 @@
   --border-radius-none: 0px;
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
-  --border-radius-lg: 16px;
+  --border-radius-lg: 12px;
+
+
 
   /* Font Size */
   --text-xs: 0.75rem; /* 12px */
@@ -76,9 +78,9 @@
   --brand: 44, 30, 113;
   --brand-light: 38, 46, 156;
 
-  --uit-primary: 204, 204, 204;
+  --uit-primary: 240, 240, 240;
 
-  --uie-primary: 51, 51, 51;
+  --uie-primary: 81, 81, 81;
   --uie-secondary: 18, 106, 106;
   --uie-tertiary: 18, 18, 179;
   --uie-success: 110, 160, 160;

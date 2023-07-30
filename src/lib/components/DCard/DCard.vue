@@ -31,7 +31,7 @@ const classList = computed(() => {
     :class="
       concatClass(
         `flex flex-nowrap flex-col gap-2 rounded-md
-          bg-primary p-2 text-start text-brand shadow-sm
+          bg-uie-primary p-2 text-start text-brand shadow-sm
         `,
         classList,
         overlay ? 'bg-overlay' : '',

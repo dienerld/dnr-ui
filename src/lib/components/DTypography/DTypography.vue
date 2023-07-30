@@ -27,9 +27,9 @@ const classList = computed(() => {
     }
 
     const options: Record<string, string> = {
-      h1: 'text-3xl font-bold',
-      h2: 'font-2xl font-bold',
-      h3: 'text-xl font-bold',
+      h1: 'text-2xl sm:text-3xl font-bold',
+      h2: 'text-xl sm:text-2xl font-bold',
+      h3: 'text-lg sm:text-xl font-bold',
       h4: 'text-lg font-bold',
       p: 'text-md',
       span: 'text-sm',

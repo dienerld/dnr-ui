@@ -23,17 +23,8 @@ const meta: Meta<typeof DTypography> = {
     class: {
       type: 'string'
     }
-  }
-}
-
-type Story = StoryObj<typeof DTypography>
-export default meta
-
-export const H1: Story = {
-  args: {
-    is: 'h1',
-    default: 'Typography h1'
   },
+
   render: (args: DTypographyProps) => ({
     components: { DTypography, DCard },
     setup() {
@@ -48,122 +39,54 @@ export const H1: Story = {
     `
   })
 }
+
+type Story = StoryObj<typeof DTypography>
+export default meta
+
+export const H1: Story = {
+  args: {
+    is: 'h1',
+    default: 'Typography h1'
+  }
+}
 export const H2: Story = {
   args: {
     is: 'h2',
     default: 'Typography h2'
-  },
-  render: (args: DTypographyProps) => ({
-    components: { DTypography, DCard },
-    setup() {
-      return { args }
-    },
-    template: `
-    <DCard>
-      <DTypography v-bind="args">
-        {{ args.default }}
-      </DTypography>
-      </DCard>
-    `
-  })
+  }
 }
 
 export const H3: Story = {
   args: {
     is: 'h3',
     default: 'Typography h3'
-  },
-  render: (args: DTypographyProps) => ({
-    components: { DTypography, DCard },
-    setup() {
-      return { args }
-    },
-    template: `
-    <DCard>
-      <DTypography v-bind="args">
-        {{ args.default }}
-      </DTypography>
-      </DCard>
-    `
-  })
+  }
 }
 
 export const H4: Story = {
   args: {
     is: 'h4',
     default: 'Typography h4'
-  },
-  render: (args: DTypographyProps) => ({
-    components: { DTypography, DCard },
-    setup() {
-      return { args }
-    },
-    template: `
-    <DCard>
-      <DTypography v-bind="args">
-        {{ args.default }}
-      </DTypography>
-      </DCard>
-    `
-  })
+  }
 }
 
 export const Span: Story = {
   args: {
     is: 'span',
     default: 'Typography span'
-  },
-  render: (args: DTypographyProps) => ({
-    components: { DTypography, DCard },
-    setup() {
-      return { args }
-    },
-    template: `
-    <DCard>
-      <DTypography v-bind="args">
-        {{ args.default }}
-      </DTypography>
-      </DCard>
-    `
-  })
+  }
 }
 
 export const P: Story = {
   args: {
     is: 'p',
     default: 'Typography p'
-  },
-  render: (args: DTypographyProps) => ({
-    components: { DTypography, DCard },
-    setup() {
-      return { args }
-    },
-    template: `
-    <DCard>
-      <DTypography v-bind="args">
-        {{ args.default }}
-      </DTypography>
-      </DCard>
-    `
-  })
+  }
 }
 
 export const Label: Story = {
   args: {
     is: 'label',
     default: 'Typography label'
-  },
-  render: (args: DTypographyProps) => ({
-    components: { DTypography, DCard },
-    setup() {
-      return { args }
-    },
-    template: `
-    <DCard>
-      <DTypography v-bind="args">
-        {{ args.default }}
-      </DTypography>
-      </DCard>
-    `
-  })
+  }
 }

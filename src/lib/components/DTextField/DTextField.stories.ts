@@ -10,10 +10,9 @@ const meta: Meta<typeof DTextField> = {
     onInput: { action: 'input' },
     onChange: { action: 'changed' },
     type: {
-      control: {
-        type: 'select',
-        options: ['text', 'password', 'email']
-      }
+      options: ['text', 'password', 'email'],
+      type: 'string',
+      control: 'select'
     },
     placeholder: {
       type: 'string'
@@ -43,7 +42,6 @@ const meta: Meta<typeof DTextField> = {
       type: 'boolean'
     }
   },
-
   render: (args) => ({
     components: { DTextField, DCard },
     setup() {
@@ -59,22 +57,61 @@ export default meta
 
 type Story = StoryObj<typeof DTextField>
 
-export const Default: Story = {}
+export const Default: Story = {
+  args: {
+    placeholder: 'Placeholder'
+  }
+}
 
 export const Disabled: Story = {
   args: {
+    placeholder: 'Placeholder',
     disabled: true
   }
 }
 
 export const DefaultError: Story = {
   args: {
+    placeholder: 'Placeholder',
     error: true
+  }
+}
+
+export const DefaultErrorWithMessage: Story = {
+  args: {
+    placeholder: 'Placeholder',
+    error: true,
+    helperText: 'This is a helper text'
   }
 }
 
 export const Password: Story = {
   args: {
+    placeholder: 'Placeholder',
     type: 'password'
+  }
+}
+
+export const PasswordError: Story = {
+  args: {
+    placeholder: 'Placeholder',
+    type: 'password',
+    error: true
+  }
+}
+
+export const PasswordErrorWithMessage: Story = {
+  args: {
+    placeholder: 'Placeholder',
+    type: 'password',
+    error: true,
+    helperText: 'This is a helper text'
+  }
+}
+
+export const Email: Story = {
+  args: {
+    placeholder: 'Placeholder',
+    type: 'email'
   }
 }
