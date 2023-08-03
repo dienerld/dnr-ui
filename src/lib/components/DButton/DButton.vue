@@ -2,6 +2,7 @@
 import { ButtonHTMLAttributes, computed, useAttrs } from 'vue'
 import { concatClass } from '../../utils/utilsCss'
 import { IconLoading } from '../../icons'
+import { Colors } from '@/lib/types'
 
 export type variantButton = 'contained' | 'outline' | 'minimal' | 'icon'
 
@@ -9,6 +10,7 @@ export type sizeButton = 'xs' | 'sm' | 'md' | 'lg'
 export interface ButtonCustomProps {
   variant: variantButton
   type?: 'button' | 'submit' | 'reset'
+  color?: Colors
   size?: sizeButton
   fullWidth?: boolean
   class?: any
@@ -17,19 +19,45 @@ export interface ButtonCustomProps {
 }
 
 export interface ButtonProps
-  extends /* @vue-ignore */ Omit<ButtonHTMLAttributes, 'type'>,
+  extends /* @vue-ignore */ Omit<ButtonHTMLAttributes, 'type' | 'color'>,
     ButtonCustomProps {}
 
 const props = defineProps<ButtonProps>()
 const attrs = useAttrs()
-const twVariant: Record<variantButton | 'loading', string> = {
-  contained: 'bg-brand hover:bg-brand-light text-white',
-  outline:
-    'border border-brand text-primary bg-uie-primary hover:bg-brand-light hover:text-white',
-  minimal: 'bg-uie-primary text-brand hover:bg-brand-light hover:text-white',
+function setVariant(
+  color: ButtonCustomProps['color'] = 'primary',
+  variant: variantButton
+) {
+  switch (variant) {
+    case 'contained': {
+      if (color === 'primary') {
+        return 'bg-primary hover:bg-secondary-dark text-contrast'
+      }
+      return 'bg-secondary hover:bg-primary-dark text-contrast'
+    }
+    case 'outline': {
+      if (color === 'primary') {
+        return 'bg-transparent border border-primary text-primary hover:bg-primary hover:text-contrast'
+      }
+      return 'bg-transparent border border-secondary text-secondary hover:bg-secondary hover:text-contrast'
+    }
+    case 'minimal': {
+      if (color === 'primary') {
+        return 'bg-transparent hover:bg-secondary-dark text-primary hover:text-contrast'
+      }
+      return 'bg-transparent hover:bg-secondary-dark text-secondary hover:text-contrast'
+    }
+    case 'icon': {
+      if (color === 'primary') {
+        return 'bg-transparent p-1 focus:border-none focus:outline-1 focus:outline-primary-light active:bg-primary-light transition'
+      }
+      return 'bg-transparent p-1 focus:border-none focus:outline-1 focus:outline-secondary-light active:bg-secondary-light transition'
+    }
 
-  icon: 'bg-transparent p-1 focus:border-none focus:outline-1 focus:outline-brand-light active:bg-brand-light transition',
-  loading: 'pointer-events-none'
+    default: {
+      return 'bg-primary hover:bg-secondary-dark text-contrast'
+    }
+  }
 }
 
 const twSize: Record<sizeButton, string> = {
@@ -41,8 +69,8 @@ const twSize: Record<sizeButton, string> = {
 const classList = computed<string>(() => {
   return concatClass(
     'flex items-center justify-center flex-nowrap w-1/3',
-    props.disabled ? '' : twVariant[props.variant],
-    props.loading ? twVariant.loading : '',
+    props.disabled ? '' : setVariant(props.color, props.variant),
+    props.loading ? 'pointer-events-none' : '',
     twSize[props.size ?? 'md'],
     props.fullWidth ? 'w-full' : ''
   )

@@ -3,6 +3,7 @@ import { withThemeByClassName } from '@storybook/addon-styling';
 import 'tailwindcss/tailwind.css';
 import '@/tailwind.css';
 import '@/colors.css';
+import { themes } from '@storybook/theming';
 
 
 /* TODO: update import to your tailwind styles file. If you're using Angular, inject this through your angular.json config instead */
@@ -10,26 +11,10 @@ import '@/colors.css';
 
 const preview: Preview = {
   parameters: {
-    decorators: [
-      withThemeByClassName({
-        themes: {
-          dark: 'dark',
-          light: 'light',
-        },
-        defaultTheme: 'light',
-        parentSelector: 'body',
-      }),
-    ],
-    actions: { argTypesRegex: '^on[A-Z].*' },
-
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/,
-      },
+    docs:{
+      theme: themes.dark,
     },
   },
-
   decorators: [
     // Adds theme switching support.
     // NOTE: requires setting "darkMode" to "class" in your tailwind config
@@ -41,6 +26,6 @@ const preview: Preview = {
       defaultTheme: 'light',
     }),
   ],
-};
+}
 
 export default preview;

@@ -5,7 +5,7 @@ import { DCard, DTypography } from '@lib/components'
 import { DButton, sizeButton, variantButton } from '@lib/components/DButton'
 import { IconAcademicCap } from '@lib/icons'
 
-const variants: variantButton[] = ['contained', 'outlined', 'minimal', 'icon']
+const variants: variantButton[] = ['contained', 'outline', 'minimal', 'icon']
 const sizes: sizeButton[] = ['sm', 'md', 'lg']
 
 const color = ref<Colors>('primary')

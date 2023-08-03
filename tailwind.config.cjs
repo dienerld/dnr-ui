@@ -69,32 +69,35 @@ module.exports = {
       },
       colors: {
         transparent: 'transparent',
-        brand: {
-          DEFAULT: 'rgba(var(--brand), <alpha-value>)',
-          light: 'rgba(var(--brand-light), <alpha-value>)'
+        primary: {
+          DEFAULT: 'rgba(var(--primary), <alpha-value>)',
+          light: 'rgba(var(--primary-light), <alpha-value>)',
+          dark: 'rgba(var(--primary-dark), <alpha-value>)'
         },
+        secondary: {
+          DEFAULT: 'rgba(var(--secondary), <alpha-value>)',
+          light: 'rgba(var(--secondary-light), <alpha-value>)',
+          dark: 'rgba(var(--secondary-dark), <alpha-value>)'
+        },
+
         disabled: 'rgba(var(--disabled), <alpha-value>)',
+        danger: 'rgba(var(--danger), <alpha-value>)',
         error: 'rgba(var(--uie-error), <alpha-value>)',
-        success: 'rgba(var(--uie-success), <alpha-value>)',
-        neutral: 'rgba(var(--uie-neutral), <alpha-value>)',
-        'uie-primary': 'rgba(var(--uie-primary), <alpha-value>)',
-        'uie-tertiary': 'rgba(var(--uie-tertiary), <alpha-value>)',
-        'uie-secondary': 'rgba(var(--uie-secondary), <alpha-value>)'
+        success: 'rgba(var(--uie-success), <alpha-value>)'
       },
       backgroundColor: {
-        overlay: 'rgba(var(--uie-overlay), <alpha-value>)',
+        divider: 'rgba(var(--divider), <alpha-value>)',
         page: {
           DEFAULT: 'rgba(var(--page), <alpha-value>)',
-          accent: 'rgba(var(--page-accent), <alpha-value>)'
+          paper: 'rgba(var(--page-paper), <alpha-value>)'
         }
       },
       textColor: {
-        primary: 'rgba(var(--uit-primary), <alpha-value>)',
-        secondary: 'rgba(var(--uit-secondary), <alpha-value>)',
-        tertiary: 'rgba(var(--uit-tertiary), <alpha-value>)',
-        success: 'rgba(var(--uit-success), <alpha-value>)',
-        error: 'rgba(var(--uit-error), <alpha-value>)',
-        link: 'rgba(var(--uit-link), <alpha-value>)'
+        primary: 'rgba(var(--text-primary), <alpha-value>)',
+        secondary: 'rgba(var(--text-secondary), <alpha-value>)',
+        disabled: 'rgba(var(--text-disabled), <alpha-value>)',
+        contrast: 'rgba(var(--text-contrast), <alpha-value>)',
+        link: 'rgba(var(--text-link), <alpha-value>)'
       },
       blur: {
         DEFAULT: 'var(--blur)'

@@ -1,14 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-
 import DButton, { type ButtonProps } from './DButton.vue'
 
+import AcademicCapIcon from '@/lib/icons/AcademicCap.vue'
 const meta: Meta<typeof DButton> = {
   component: DButton,
   title: 'Components/DButton',
   argTypes: {
     variant: {
-      options: ['contained', 'outlined', 'minimal'],
+      options: ['contained', 'outline', 'minimal', 'icon'],
+      control: 'radio'
+    },
+    color: {
+      type: 'string',
+      options: ['primary', 'secondary'],
       control: 'radio'
     },
     disabled: {
@@ -39,8 +44,7 @@ const meta: Meta<typeof DButton> = {
       control: 'select',
       defaultValue: 'button'
     },
-    // @ts-expect-error
-    children: {
+    default: {
       type: 'string',
       control: 'text'
     }
@@ -67,7 +71,7 @@ export const Contained: Story = {
       }
     },
     template:
-      '<DButton v-bind="args" @click="onClick">{{ args.children || args.variant }}</DButton>'
+      '<DButton v-bind="args" @click="onClick">{{ args.default || args.variant }}</DButton>'
   })
 }
 
@@ -141,5 +145,19 @@ export const MinimalDisabled: Story = {
   args: {
     variant: 'minimal',
     disabled: true
+  }
+}
+
+export const Icon: Story = {
+  render: (args: ButtonProps) => ({
+    components: { DButton, AcademicCapIcon },
+    setup() {
+      return { args, onClick: action('onClick') }
+    },
+    template:
+      '<DButton v-bind="args" @click="onClick"><AcademicCapIcon class="text-primary"/></DButton>'
+  }),
+  args: {
+    variant: 'icon'
   }
 }

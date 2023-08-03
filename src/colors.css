@@ -1,26 +1,29 @@
 :root {
-  --page: 0, 0, 199;
-  --page-accent: 0, 0, 38;
+  --page: 241, 245, 249;
+  --page-paper: 255, 255, 255;
+  --divider: 226, 232, 240;
 
-  --brand: 235, 22, 119;
-  --brand-light: 232, 27, 164;
 
+
+  --primary: 30, 41, 59;
+  --primary-light: 100, 116, 139;
+  --primary-dark: 15, 23, 42;
+
+  --secondary-light: 129, 140, 248;
+  --secondary: 79, 70, 229;
+  --secondary-dark: 55, 48, 163;
+
+
+  --danger: 244, 67, 54;
+  --success: 110, 160, 160;
+  --error: 222, 41, 41;
   --disabled: 179, 171, 188;
 
-  --uit-primary: 18, 25, 25;
-  --uit-secondary: 104, 88, 121;
-  --uit-tertiary: 179, 171, 188;
-  --uit-success: 110, 160, 160;
-  --uit-error: 222, 41, 41;
-  --uit-link: 60, 154, 154;
-
-  --uie-primary: 255, 255, 255;
-  --uie-secondary: 18, 106, 106;
-  --uie-tertiary: 179, 171, 188;
-  --uie-success: 110, 160, 160;
-  --uie-error: 222, 41, 41;
-  --uie-neutral: 235, 235, 235;
-  --uie-overlay: 55, 148, 148;
+  --text-primary: 17, 24, 39;
+  --text-contrast: 255, 255, 255;
+  --text-secondary: 107, 114, 128;
+  --text-disabled: 149, 156, 169;
+  --text-link: 60, 154, 154;
 
 
   /* Screens */
@@ -61,30 +64,45 @@
 
 
   /* Font Size */
-  --text-xs: 0.75rem; /* 12px */
-  --text-sm: 0.875rem; /* 14px */
-  --text-md: 1rem; /* 16px */
-  --text-lg: 1.125rem; /* 18px */
-  --text-xl: 1.25rem; /* 20px */
-  --text-2xl: 1.5rem; /* 24px */
-  --text-3xl: 1.75rem; /* 28px */
+  --text-xs: 0.75rem;
+  /* 12px */
+  --text-sm: 0.875rem;
+  /* 14px */
+  --text-md: 1rem;
+  /* 16px */
+  --text-lg: 1.125rem;
+  /* 18px */
+  --text-xl: 1.25rem;
+  /* 20px */
+  --text-2xl: 1.5rem;
+  /* 24px */
+  --text-3xl: 1.75rem;
+  /* 28px */
 
 }
 
 .dark {
-  --page: 38, 38, 38;
-  --page-accent: 64, 64, 64;
+  --page: 70, 82, 97;
+  --page-paper: 35, 41, 49;
 
-  --brand: 44, 30, 113;
-  --brand-light: 38, 46, 156;
+  --disabled: 179, 171, 188;
+  --divider: 37, 37, 37;
 
-  --uit-primary: 240, 240, 240;
+  --primary-light: 204, 215, 226;
+  --primary: 86, 120, 157;
+  --primary-dark: 43, 72, 111;
 
-  --uie-primary: 81, 81, 81;
-  --uie-secondary: 18, 106, 106;
-  --uie-tertiary: 18, 18, 179;
-  --uie-success: 110, 160, 160;
-  --uie-error: 222, 41, 41;
-  --uie-overlay: 55, 148, 148;
-  --uie-neutral: 74, 74, 74;
+  --secondary-light: 215, 211, 237;
+  --secondary: 121, 108, 196;
+  --secondary-dark: 73, 61, 162;
+
+
+  --danger: 244, 67, 54;
+  --success: 110, 160, 160;
+  --error: 222, 41, 41;
+  --text-contrast: 255, 255, 255;
+  --text-primary: 255, 255, 255;
+  --text-secondary: 148, 163, 184;
+  --text-disabled: 156, 163, 175;
+  --text-link: 60, 154, 154;
 }

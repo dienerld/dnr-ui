@@ -27,6 +27,7 @@
   "dependencies": {
     "@storybook/addon-actions": "^7.1.1",
     "@storybook/addons": "^7.1.1",
+    "@storybook/theming": "^7.2.1",
     "class-variance-authority": "^0.7.0",
     "tailwind-merge": "^1.14.0",
     "vue": "^3.3.4"
