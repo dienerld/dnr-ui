@@ -71,11 +71,11 @@ watch(passwordIsVisible, () => {
           concatClass(
             `
             w-full p-2 indent-1
-            text-secondary bg-primary
+            text-secondary bg-page
             border border-primary-dark
             outline outline-0 outline-primary-dark
             focus:outline active:outline-1
-            placeholder:text-secondary
+            placeholder:text-primary
             disabled:outline-0
             disabled:bg-disabled disabled:text-disabled
             data-[error=true]:border-error
