@@ -54,6 +54,7 @@ watch(passwordIsVisible, () => {
   <div
     :class="
       concatClass(
+        disabled ? 'cursor-not-allowed' : '',
         'flex flex-col w-1/2',
         fullWidth ? 'w-full' : '',
         $props.class ?? ''
@@ -75,6 +76,7 @@ watch(passwordIsVisible, () => {
             outline outline-0 outline-uie-tertiary
             focus:outline active:outline-1
             placeholder:text-secondary
+            disabled:outline-0
             disabled:bg-uie-tertiary disabled:text-secondary
             data-[error=true]:border-error
             data-[error=true]:active:outline-error
@@ -101,7 +103,7 @@ watch(passwordIsVisible, () => {
             size="xs"
             variant="icon"
             @click="passwordIsVisible = !passwordIsVisible"
-            class="text-brand dark:text-primary"
+            class="text-primary"
             v-if="type === 'password'"
           >
             <div v-if="passwordIsVisible">

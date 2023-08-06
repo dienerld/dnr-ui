@@ -102,7 +102,7 @@ export const PasswordError: Story = {
 
 export const PasswordErrorWithMessage: Story = {
   args: {
-    placeholder: 'Placeholder',
+    placeholder: 'Senha',
     type: 'password',
     error: true,
     helperText: 'This is a helper text'

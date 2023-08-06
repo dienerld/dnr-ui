@@ -31,10 +31,10 @@ const classList = computed(() => {
     :class="
       concatClass(
         `flex flex-nowrap flex-col gap-2 rounded-md
-          bg-uie-primary p-2 text-start text-brand shadow-sm
+          bg-page-paper p-2 text-start text-primary shadow-sm
         `,
         classList,
-        overlay ? 'bg-overlay' : '',
+        overlay ? 'bg-page' : '',
         $props.class ?? ''
       )
     "

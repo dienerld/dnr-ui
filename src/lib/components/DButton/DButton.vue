@@ -49,9 +49,9 @@ function setVariant(
     }
     case 'icon': {
       if (color === 'primary') {
-        return 'bg-transparent p-1 focus:border-none focus:outline-1 focus:outline-primary-light active:bg-primary-light transition'
+        return 'bg-transparent p-1 focus:border-none focus:outline-1 focus:outline-primary-light active:bg-primary-light transition hover:outline hover:outline-1 hover:outline-primary'
       }
-      return 'bg-transparent p-1 focus:border-none focus:outline-1 focus:outline-secondary-light active:bg-secondary-light transition'
+      return 'bg-transparent p-1 focus:border-none focus:outline-1 focus:outline-secondary-light active:bg-secondary-light transition hover:outline hover:outline-1 hover:outline-secondary'
     }
 
     default: {
