@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["src/App.vue", "src/main.ts", "src/stories/*.*", "src/pages/*.*"],
-  "include": ["src/lib/**/*.ts", "src/**/*.d.ts", "src/lib/**/*.vue"],
+  "exclude": ["src/App.vue", "src/main.ts", "src/stories/*.*", "src/docs/*.*", "src/lib/**/*.stories.ts"],
+  "include": ["src/lib/**/*.ts", "src/lib/**/*.d.ts", "src/lib/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
