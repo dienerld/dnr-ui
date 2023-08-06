@@ -82,8 +82,8 @@ module.exports = {
 
         disabled: 'rgba(var(--disabled), <alpha-value>)',
         danger: 'rgba(var(--danger), <alpha-value>)',
-        error: 'rgba(var(--uie-error), <alpha-value>)',
-        success: 'rgba(var(--uie-success), <alpha-value>)'
+        error: 'rgba(var(--error), <alpha-value>)',
+        success: 'rgba(var(--success), <alpha-value>)'
       },
       backgroundColor: {
         divider: 'rgba(var(--divider), <alpha-value>)',
