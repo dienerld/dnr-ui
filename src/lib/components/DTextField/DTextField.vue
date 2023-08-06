@@ -71,13 +71,13 @@ watch(passwordIsVisible, () => {
           concatClass(
             `
             w-full p-2 indent-1
-            text-secondary bg-uie-primary
-            border border-uie-tertiary
-            outline outline-0 outline-uie-tertiary
+            text-secondary bg-primary
+            border border-primary-dark
+            outline outline-0 outline-primary-dark
             focus:outline active:outline-1
             placeholder:text-secondary
             disabled:outline-0
-            disabled:bg-uie-tertiary disabled:text-secondary
+            disabled:bg-disabled disabled:text-disabled
             data-[error=true]:border-error
             data-[error=true]:active:outline-error
             data-[error=true]:focus:border-error
@@ -107,11 +107,11 @@ watch(passwordIsVisible, () => {
             v-if="type === 'password'"
           >
             <div v-if="passwordIsVisible">
-              <IconEyeSlash />
+              <IconEyeSlash class="text-primary" />
               <span class="sr-only">Hidden Password</span>
             </div>
             <div v-else>
-              <IconEye />
+              <IconEye class="text-primary" />
               <span class="sr-only">Show Password</span>
             </div>
           </DButton>
