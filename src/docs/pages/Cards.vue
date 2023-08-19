@@ -5,7 +5,7 @@ import DTypography from '@lib/components/DTypography'
 </script>
 
 <template>
-  <div class="container mx-auto mt-10 flex flex-wrap gap-2 p-4">
+  <div class="container mx-auto flex flex-wrap gap-2 p-4">
     <DCard class="">
       <DTypography is="h2">default - flex-col</DTypography>
       <DButton variant="contained">Second Element</DButton>
